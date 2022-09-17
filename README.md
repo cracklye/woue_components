@@ -12,30 +12,35 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# WOUE (Write Once Use Everywhere) Components
+The WOUE components are a set of components that wrap components for each of the different design systems.  This allows you to create custom components once that can be used across different design systems without changing code.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Currently the following components are available: 
+|Component|Material|Cupertino|FluentUI|MacOS|Yaru|
+|-|-|-|-|-|-|
+|WoueButton|RaisedButton|Cop|Button|Button|RaisedButton|
+|WoueIconButton||||||
+|WoueDropdown||||||
+|WoueSlider||||||
+|WoueTextField||||||
+
 
 ## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Add the package to your pubspec.yaml or run the following command to add the dependancy
+``` 
+flutter pub get woue_components
+```
+import the package into your code:
+``` 
+import 'package:woue_components/woue_components.dart
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
-```dart
-const like = 'sample';
+``` 
+Woue.init() // INitialise using the default method 
+// or 
+Woue.init(DesignFramework.material); // Initialise with the specified design framework (if you wnat to use material on mac for example)
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.

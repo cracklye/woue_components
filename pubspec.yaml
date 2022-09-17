@@ -10,7 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  fluent_ui:
+  macos_ui:
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
