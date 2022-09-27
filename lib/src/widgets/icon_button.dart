@@ -49,7 +49,7 @@ class IconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DesignProvider.provider.buildIconButton(
+    return Woue.provider.buildIconButton(
         icon,
         onPressed,
         onLongPress,

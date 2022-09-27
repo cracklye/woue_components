@@ -25,7 +25,7 @@ class TextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DesignProvider.provider.buildTextButton(key, child, onPressed,
-        onLongPress, onFocusChange, onHover, focusNode, autofocus);
+    return Woue.provider.buildTextButton(key, child, onPressed, onLongPress,
+        onFocusChange, onHover, focusNode, autofocus);
   }
 }

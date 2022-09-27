@@ -25,7 +25,7 @@ class ElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DesignProvider.provider.buildElevatedButton(key, child, onPressed,
-        onLongPress, onFocusChange, onHover, focusNode, autofocus);
+    return Woue.provider.buildElevatedButton(key, child, onPressed, onLongPress,
+        onFocusChange, onHover, focusNode, autofocus);
   }
 }

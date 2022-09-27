@@ -3,9 +3,9 @@ import 'package:woue_components/src/woue_provider.dart';
 
 enum DesignFrameworkOptions { yaru, fluent, material, cupertino, macos }
 
-class DesignProvider {
-  static DesignProvider? _instance;
-  static DesignProvider active() {
+class Woue {
+  static Woue? _instance;
+  static Woue active() {
     if (_instance == null) init();
     return _instance!;
   }
@@ -13,9 +13,9 @@ class DesignProvider {
   static WoueProvider get provider => active().activeProvider;
 
   static init({WoueProvider provider = const MaterialProvider()}) {
-    _instance = DesignProvider(activeProvider: provider);
+    _instance = Woue(activeProvider: provider);
   }
 
   WoueProvider activeProvider;
-  DesignProvider({required this.activeProvider});
+  Woue({required this.activeProvider});
 }
