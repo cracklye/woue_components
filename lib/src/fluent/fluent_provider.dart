@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
+import 'package:fluent_ui/fluent_ui.dart';
 import 'package:woue_components/src/woue_provider.dart';
 
-class MaterialProvider extends WoueProvider {
-  const MaterialProvider();
-
-  @override
+class FluentProvider extends WoueProvider {
   Widget buildElevatedButton(
     Key? key,
     Widget child,
@@ -15,9 +12,7 @@ class MaterialProvider extends WoueProvider {
     FocusNode? focusNode,
     bool autofocus,
   ) {
-    return ElevatedButton(
-      onFocusChange: onFocusChange,
-      onHover: onHover,
+    return Button(
       key: key,
       child: child,
       onPressed: onPressed,
@@ -38,11 +33,9 @@ class MaterialProvider extends WoueProvider {
     FocusNode? focusNode,
     bool autofocus,
   ) {
-    return TextButton(
+    return Button(
       key: key,
       child: child,
-      onFocusChange: onFocusChange,
-      onHover: onHover,
       onPressed: onPressed,
       onLongPress: onLongPress,
       focusNode: focusNode,
@@ -50,6 +43,7 @@ class MaterialProvider extends WoueProvider {
     );
   }
 
+  @override
   Widget buildIconButton(
     Icon icon,
     Function() onPressed,
@@ -72,24 +66,16 @@ class MaterialProvider extends WoueProvider {
     BoxConstraints? constraints,
   ) {
     return IconButton(
-      onPressed: onPressed,
-      icon: icon,
-      iconSize: iconSize,
-      padding: padding ?? const EdgeInsets.all(8.0),
-      alignment: alignment ?? Alignment.center,
-      splashRadius: splashRadius,
-      color: color,
-      focusColor: focusColor,
-      hoverColor: hoverColor,
-      highlightColor: highlightColor,
-      splashColor: splashColor,
-      disabledColor: disabledColor,
-      mouseCursor: mouseCursor,
-      focusNode: focusNode,
-      autofocus: autofocus,
-      tooltip: tooltip,
-      enableFeedback: enableFeedback,
-      constraints: constraints,
+      icon: icon, onPressed: onPressed, onLongPress: onLongPress,
+      autofocus: autofocus, focusNode: focusNode,
+      //TODO Compute from size iconButtonMode: IconBu,
+      iconButtonMode: iconSize == null
+          ? null
+          : (iconSize < 17
+              ? IconButtonMode.tiny
+              : iconSize < 33
+                  ? IconButtonMode.small
+                  : IconButtonMode.large),
     );
   }
 }
