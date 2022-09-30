@@ -13,6 +13,7 @@ abstract class WoueProvider {
     FocusNode? focusNode,
     bool autofocus,
   );
+
   Widget buildTextButton(
     Key? key,
     Widget child,
@@ -44,5 +45,53 @@ abstract class WoueProvider {
     String? tooltip,
     bool enableFeedback,
     BoxConstraints? constraints,
+  );
+
+  Widget buildSlider(
+    double value,
+    void Function(double)? onChanged,
+    void Function(double)? onChangeStart,
+    void Function(double)? onChangeEnd,
+    double min,
+    double max,
+    int? divisions,
+    String? label,
+    FocusNode? focusNode,
+    bool vertical,
+    bool autofocus,
+    MouseCursor mouseCursor,
+    Color? activeColor,
+    Color? inactiveColor,
+    Color? thumbColor,
+    String Function(double)? semanticFormatterCallback,
+  );
+
+  Widget buildListTile(
+    Key? key,
+    Color? tileColor,
+    ShapeBorder? shape,
+    Widget? leading,
+    Widget? title,
+    Widget? subtitle,
+    Widget? trailing,
+    bool isThreeLine,
+    EdgeInsetsGeometry? contentPadding,
+    Color? selectedColor,
+    Color? iconColor,
+    Color? textColor,
+    bool enabled,
+    void Function()? onTap,
+    void Function()? onLongPress,
+    MouseCursor? mouseCursor,
+    bool selected,
+    Color? focusColor,
+    Color? hoverColor,
+    FocusNode? focusNode,
+    bool autofocus,
+    Color? selectedTileColor,
+    bool? enableFeedback,
+    double? horizontalTitleGap,
+    double? minVerticalPadding,
+    double? minLeadingWidth,
   );
 }
