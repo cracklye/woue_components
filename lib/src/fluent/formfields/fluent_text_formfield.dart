@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 
 class FluentFormField extends FormField<String> {
   FluentFormField(
@@ -77,12 +76,13 @@ class FluentFormField extends FormField<String> {
       String initialValue = "",
       bool autovalidate = false})
       : super(
+            key: key,
             onSaved: onSaved,
             validator: validator,
             initialValue: initialValue,
             // autovalidate: autovalidate,
             builder: (FormFieldState<String> state) {
-              TextEditingController _controller =
+              TextEditingController controller =
                   TextEditingController(text: initialValue);
 // field.didChange(value);
 //              if (onChanged != null) {
@@ -94,12 +94,13 @@ class FluentFormField extends FormField<String> {
                   onChanged(value);
                 }
               }
-              //_controller.text= state.value??""; 
-              updateTextController(_controller, state.value??"");
+
+              //_controller.text= state.value??"";
+              updateTextController(controller, state.value ?? "");
 
               return TextBox(
                 key: key,
-                controller: _controller,
+                controller: controller,
                 autocorrect: autocorrect,
                 autofillHints: autofillHints,
                 autofocus: autofocus,
@@ -166,16 +167,16 @@ class FluentFormField extends FormField<String> {
               );
             });
 
- static void updateTextController(
+  static void updateTextController(
     TextEditingController txtController,
-    dynamic _newValue,
+    dynamic newValue,
   ) {
-    
     int offset = txtController.value.selection.extentOffset;
-print('Offset : $offset \nnew value: $_newValue \nSelection= ${txtController.value.selection} \n Value:${txtController.value}');
+    print(
+        'Offset : $offset \nnew value: $newValue \nSelection= ${txtController.value.selection} \n Value:${txtController.value}');
 
     txtController.value = TextEditingValue(
-      text: _newValue ?? "",
+      text: newValue ?? "",
       selection: TextSelection.fromPosition(
         TextPosition(offset: offset),
       ),

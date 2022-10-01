@@ -1,10 +1,8 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/src/design_framework.dart';
 
 class Slider extends StatelessWidget {
-  Slider({
+  const Slider({
     Key? key,
     required this.value,
     this.onChanged,
@@ -22,7 +20,7 @@ class Slider extends StatelessWidget {
     this.inactiveColor,
     this.thumbColor,
     this.semanticFormatterCallback,
-  }) : super();
+  }) : super(key:key);
   final double value;
   final void Function(double)? onChanged;
   final void Function(double)? onChangeStart;

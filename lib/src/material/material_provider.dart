@@ -19,11 +19,11 @@ class MaterialProvider extends WoueProvider {
       onFocusChange: onFocusChange,
       onHover: onHover,
       key: key,
-      child: child,
       onPressed: onPressed,
       onLongPress: onLongPress,
       focusNode: focusNode,
       autofocus: autofocus,
+      child: child,
     );
   }
 
@@ -40,13 +40,13 @@ class MaterialProvider extends WoueProvider {
   ) {
     return TextButton(
       key: key,
-      child: child,
       onFocusChange: onFocusChange,
       onHover: onHover,
       onPressed: onPressed,
       onLongPress: onLongPress,
       focusNode: focusNode,
       autofocus: autofocus,
+      child: child,
     );
   }
 
@@ -131,7 +131,8 @@ class MaterialProvider extends WoueProvider {
       mouseCursor: mouseCursor,
     );
   }
-@override
+
+  @override
   Widget buildListTile(
     Key? key,
     Color? tileColor,
@@ -142,7 +143,6 @@ class MaterialProvider extends WoueProvider {
     Widget? trailing,
     bool isThreeLine,
     EdgeInsetsGeometry? contentPadding,
-    
     Color? selectedColor,
     Color? iconColor,
     Color? textColor,

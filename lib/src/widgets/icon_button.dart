@@ -1,10 +1,8 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/src/design_framework.dart';
 
 class IconButton extends StatelessWidget {
-  IconButton({
+  const IconButton({
     Key? key,
     required this.icon,
     required this.onPressed,
@@ -25,27 +23,27 @@ class IconButton extends StatelessWidget {
     this.tooltip,
     this.enableFeedback = false,
     this.constraints,
-  }) : super();
-  Icon icon;
-  Function() onPressed;
-  Function()? onLongPress;
-  double? iconSize;
-  EdgeInsetsGeometry? padding;
+  }) : super(key:key);
+  final Icon icon;
+  final Function() onPressed;
+  final Function()? onLongPress;
+  final double? iconSize;
+  final EdgeInsetsGeometry? padding;
 
-  AlignmentGeometry? alignment;
-  double? splashRadius;
-  Color? color;
-  Color? focusColor;
-  Color? hoverColor;
-  Color? highlightColor;
-  Color? splashColor;
-  Color? disabledColor;
-  MouseCursor? mouseCursor;
-  FocusNode? focusNode;
-  bool autofocus;
-  String? tooltip;
-  bool enableFeedback;
-  BoxConstraints? constraints;
+  final AlignmentGeometry? alignment;
+  final double? splashRadius;
+  final Color? color;
+  final Color? focusColor;
+  final Color? hoverColor;
+  final Color? highlightColor;
+  final Color? splashColor;
+  final Color? disabledColor;
+  final MouseCursor? mouseCursor;
+  final FocusNode? focusNode;
+  final bool autofocus;
+  final String? tooltip;
+  final bool enableFeedback;
+  final BoxConstraints? constraints;
 
   @override
   Widget build(BuildContext context) {

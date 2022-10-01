@@ -15,11 +15,11 @@ class FluentProvider extends WoueProvider {
   ) {
     return Button(
       key: key,
-      child: child,
       onPressed: onPressed,
       onLongPress: onLongPress,
       focusNode: focusNode,
       autofocus: autofocus,
+      child: child,
     );
   }
 
@@ -36,11 +36,11 @@ class FluentProvider extends WoueProvider {
   ) {
     return Button(
       key: key,
-      child: child,
       onPressed: onPressed,
       onLongPress: onLongPress,
       focusNode: focusNode,
       autofocus: autofocus,
+      child: child,
     );
   }
 
