@@ -1,8 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:woue_components/src/widgets/expander.dart';
 import 'package:woue_components/src/woue_provider.dart';
+
 
 class MaterialProvider extends WoueProvider {
   const MaterialProvider();
+
+
+//  @override
+//   Widget buildExpandedPanelList(List<ExpandedListItem> items,
+//       ) {
+// return Text("Not implemented");
+
+//       //       return ExpansionPanelList(
+//       // expansionCallback: (int index, bool isExpanded) {
+//       //   setState(() {
+//       //     _data[index].isExpanded = !isExpanded;
+//       //   });
+//       // },
+//       // children: _data.map<ExpansionPanel>((Item item) {
+//       //   return ExpansionPanel(
+//       //     headerBuilder: (BuildContext context, bool isExpanded) {
+//       //       return ListTile(
+//       //         title: Text(item.headerValue),
+//       //       );
+//       //     },
+//       //     body: ListTile(
+//       //         title: Text(item.expandedValue),
+//       //         subtitle:
+//       //             const Text('To delete this panel, tap the trash can icon'),
+//       //         trailing: const Icon(Icons.delete),
+//       //         onTap: () {
+//       //           setState(() {
+//       //             _data.removeWhere((Item currentItem) => item == currentItem);
+//       //           });
+//       //         }),
+//       //     isExpanded: item.isExpanded,
+//       //   );
+//       // }).toList(),
+
+
+
+// }
+
 
   @override
   Widget buildElevatedButton(
@@ -24,6 +64,70 @@ class MaterialProvider extends WoueProvider {
       focusNode: focusNode,
       autofocus: autofocus,
       child: child,
+    );
+  }
+
+  @override
+  Widget buildChip({
+    Widget? avatar,
+    required Widget label,
+    TextStyle? labelStyle,
+    EdgeInsetsGeometry? labelPadding,
+    Widget? deleteIcon,
+    void Function()? onDeleted,
+    Color? deleteIconColor,
+    String? deleteButtonTooltipMessage,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    Clip clipBehavior = Clip.none,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Color? backgroundColor,
+    EdgeInsetsGeometry? padding,
+    Object? visualDensity,
+    Object? materialTapTargetSize,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    IconThemeData? iconTheme,
+  }) {
+    return Chip(
+      avatar: avatar,
+        label: label,
+        labelStyle: labelStyle,
+        labelPadding: labelPadding,
+        deleteIcon: deleteIcon,
+        onDeleted: onDeleted,
+        deleteIconColor: deleteIconColor,
+        deleteButtonTooltipMessage: deleteButtonTooltipMessage,
+        side: side,
+        shape: shape,
+        clipBehavior: clipBehavior,
+        focusNode: focusNode,
+        autofocus: autofocus,
+        backgroundColor: backgroundColor,
+        padding: padding,
+        visualDensity: visualDensity!=null? visualDensity as VisualDensity:null,
+        materialTapTargetSize: materialTapTargetSize!=null?materialTapTargetSize as MaterialTapTargetSize:null,
+        elevation: elevation,
+        shadowColor: shadowColor,
+        surfaceTintColor: surfaceTintColor,
+        iconTheme: iconTheme);
+  }
+
+  @override
+  Widget buildDivider(
+      {double? height,
+      double? thickness,
+      double? indent,
+      double? endIndent,
+      Color? color}) {
+    return Divider(
+      height: height,
+      thickness: thickness,
+      indent: indent,
+      endIndent: endIndent,
+      color: color,
     );
   }
 

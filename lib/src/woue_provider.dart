@@ -1,7 +1,38 @@
 import 'package:flutter/widgets.dart';
+import 'package:woue_components/woue_components.dart';
 
 abstract class WoueProvider {
   const WoueProvider();
+  Widget buildDivider({double? height, double? thickness, double? indent, double? endIndent, Color? color});
+  
+     
+  // Widget buildExpandedPanelList(List<ExpandedListItem> items,
+  //     ) ;
+      
+  
+  Widget buildChip({
+    Widget? avatar,
+    required Widget label,
+    TextStyle? labelStyle,
+    EdgeInsetsGeometry? labelPadding,
+    Widget? deleteIcon,
+    void Function()? onDeleted,
+    Color? deleteIconColor,
+    String? deleteButtonTooltipMessage,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    Clip clipBehavior = Clip.none,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Color? backgroundColor,
+    EdgeInsetsGeometry? padding,
+    Object? visualDensity,
+    materialTapTargetSize,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    IconThemeData? iconTheme,
+  });
 
   Widget buildElevatedButton(
     Key? key,

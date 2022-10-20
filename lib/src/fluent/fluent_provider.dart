@@ -1,5 +1,8 @@
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:woue_components/src/widgets/expander.dart';
+
 import 'package:woue_components/src/woue_provider.dart';
+//import 'package:woue_components/woue_components.dart';
 
 class FluentProvider extends WoueProvider {
   @override
@@ -20,6 +23,62 @@ class FluentProvider extends WoueProvider {
       focusNode: focusNode,
       autofocus: autofocus,
       child: child,
+    );
+  }
+
+  // @override
+  // Widget buildExpandedPanelList(
+  //   List<ExpandedListItem> items,
+  // ) {
+  //   return Text("Not implemented");
+  //   // return Column(
+  //   //   children: [
+  //   //     ...items.map((e) => Expander(header: e.title, content: e.content))
+  //   //   ],
+  //   // );
+  // }
+
+  @override
+  Widget buildChip({
+    Widget? avatar,
+    required Widget label,
+    TextStyle? labelStyle,
+    EdgeInsetsGeometry? labelPadding,
+    Widget? deleteIcon,
+    void Function()? onDeleted,
+    Color? deleteIconColor,
+    String? deleteButtonTooltipMessage,
+    BorderSide? side,
+    OutlinedBorder? shape,
+    Clip clipBehavior = Clip.none,
+    FocusNode? focusNode,
+    bool autofocus = false,
+    Color? backgroundColor,
+    EdgeInsetsGeometry? padding,
+    Object? visualDensity,
+    materialTapTargetSize,
+    double? elevation,
+    Color? shadowColor,
+    Color? surfaceTintColor,
+    IconThemeData? iconTheme,
+  }) {
+    return Chip(
+      text: label,
+      onPressed: onDeleted,
+      image: avatar,
+      semanticLabel: deleteButtonTooltipMessage,
+    );
+  }
+
+  @override
+  Widget buildDivider(
+      {double? height,
+      double? thickness,
+      double? indent,
+      double? endIndent,
+      Color? color}) {
+    return Divider(
+      size: height,
     );
   }
 
@@ -149,14 +208,14 @@ class FluentProvider extends WoueProvider {
         onLongPress: onLongPress,
         child: ListTile(
           key: key,
-          tileColor: tileColor,
-          shape: shape,
+          // tileColor: tileColor,
+          // shape: shape,
           leading: leading,
           title: title,
           subtitle: subtitle,
           trailing: trailing,
-          isThreeLine: isThreeLine,
-          contentPadding: contentPadding ?? kDefaultContentPadding,
+          // isThreeLine: isThreeLine,
+          //  contentPadding: contentPadding ?? kDefaultContentPadding,
         ));
   }
 //   @override
