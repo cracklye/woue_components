@@ -10,6 +10,7 @@ export 'src/widgets/list_tile.dart';
 export 'src/widgets/labeled_widget.dart';
 export 'src/widgets/chip.dart';
 export 'src/widgets/expander.dart';
+export 'src/widgets/expanded_panel.dart';
 export 'src/woue_provider.dart';
 export 'src/widgets/divider.dart';
 export 'src/fluent/fluent_provider.dart';

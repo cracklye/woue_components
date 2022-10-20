@@ -106,7 +106,7 @@ class FluentProvider extends WoueProvider {
   @override
   Widget buildIconButton(
     Icon icon,
-    Function() onPressed,
+    Function()? onPressed,
     Function()? onLongPress,
     double? iconSize,
     EdgeInsetsGeometry? padding,

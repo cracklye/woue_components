@@ -5,7 +5,7 @@ class IconButton extends StatelessWidget {
   const IconButton({
     Key? key,
     required this.icon,
-    required this.onPressed,
+     this.onPressed,
     this.onLongPress,
     this.iconSize,
     this.padding,
@@ -25,7 +25,7 @@ class IconButton extends StatelessWidget {
     this.constraints,
   }) : super(key:key);
   final Icon icon;
-  final Function() onPressed;
+  final Function()? onPressed;
   final Function()? onLongPress;
   final double? iconSize;
   final EdgeInsetsGeometry? padding;
