@@ -41,7 +41,9 @@ class _ExpandedPanelState extends State<ExpandedPanel> {
         children.add(Container());
       }
     }
-
+return Column(
+      children: children,
+    ); 
     return Expanded(
         child: Column(
       children: children,
