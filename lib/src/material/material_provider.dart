@@ -1,47 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:woue_components/src/widgets/expander.dart';
 import 'package:woue_components/src/woue_provider.dart';
 
 
 class MaterialProvider extends WoueProvider {
   const MaterialProvider();
-
-
-//  @override
-//   Widget buildExpandedPanelList(List<ExpandedListItem> items,
-//       ) {
-// return Text("Not implemented");
-
-//       //       return ExpansionPanelList(
-//       // expansionCallback: (int index, bool isExpanded) {
-//       //   setState(() {
-//       //     _data[index].isExpanded = !isExpanded;
-//       //   });
-//       // },
-//       // children: _data.map<ExpansionPanel>((Item item) {
-//       //   return ExpansionPanel(
-//       //     headerBuilder: (BuildContext context, bool isExpanded) {
-//       //       return ListTile(
-//       //         title: Text(item.headerValue),
-//       //       );
-//       //     },
-//       //     body: ListTile(
-//       //         title: Text(item.expandedValue),
-//       //         subtitle:
-//       //             const Text('To delete this panel, tap the trash can icon'),
-//       //         trailing: const Icon(Icons.delete),
-//       //         onTap: () {
-//       //           setState(() {
-//       //             _data.removeWhere((Item currentItem) => item == currentItem);
-//       //           });
-//       //         }),
-//       //     isExpanded: item.isExpanded,
-//       //   );
-//       // }).toList(),
-
-
-
-// }
 
 
   @override

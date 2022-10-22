@@ -1,6 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:woue_components/src/widgets/expander.dart';
-
 import 'package:woue_components/src/woue_provider.dart';
 //import 'package:woue_components/woue_components.dart';
 
