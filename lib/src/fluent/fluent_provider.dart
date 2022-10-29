@@ -1,4 +1,5 @@
 import 'package:fluent_ui/fluent_ui.dart';
+import 'package:woue_components/src/widgets/combo.dart';
 import 'package:woue_components/src/woue_provider.dart';
 //import 'package:woue_components/woue_components.dart';
 
@@ -216,19 +217,22 @@ class FluentProvider extends WoueProvider {
           //  contentPadding: contentPadding ?? kDefaultContentPadding,
         ));
   }
-//   @override
-//   Widget buildCombo<T>(List<T> options) {
-//  return Combobox<T>(
-//       placeholder: placeholder,
-//       isExpanded: true,
-//       items: options
-//           .map((e) => f.ComboboxItem<T>(
-//                 value: e,
-//                 child: Text(e.toString()),
-//               ))
-//           .toList(),
-//       value: value,
-//       onChanged: onChanged,
-//     );
-//   }
+
+  // @override
+  // Widget buildCombo<T>(
+  //     List<ComboEntry<T>> options, T? value, Function(T? selected) onChanged) {
+
+  //   return Combobox<T>(
+  //     //TODO  placeholder: placeholder,
+  //     isExpanded: true,
+  //     items: options
+  //         .map((e) => ComboboxItem<T>(
+  //               value: e.value,
+  //               child: e.child,
+  //             ))
+  //         .toList(),
+  //     value: value,
+  //     onChanged: onChanged,
+  //   );
+  // }
 }

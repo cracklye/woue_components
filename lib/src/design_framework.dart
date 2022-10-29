@@ -3,8 +3,12 @@ import 'package:woue_components/src/woue_provider.dart';
 
 enum DesignFrameworkOptions { yaru, fluent, material, cupertino, macos }
 
+
+/// Woue
 class Woue {
+  
   static Woue? _instance;
+
   static Woue active() {
     if (_instance == null) init();
     return _instance!;

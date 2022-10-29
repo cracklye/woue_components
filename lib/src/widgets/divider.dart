@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:woue_components/src/design_framework.dart';
 
 class Divider extends StatelessWidget {
-  Divider(
+  const Divider(
       {super.key,
       this.height,
       this.thickness,

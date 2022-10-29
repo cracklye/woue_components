@@ -4,6 +4,15 @@
 // import 'package:flutter/widgets.dart';
 // import 'package:woue_components/src/design_framework.dart';
 
+
+// class ComboEntry<T>  {
+
+//   final T value; 
+//   final Widget child; 
+  
+
+// }
+
 // class Combo<T> extends StatelessWidget {
 //   Combo({
 //     Key? key,
@@ -34,7 +43,7 @@
 //     this.borderRadius,
 //   }) : super();
 
-//   final List<DropdownMenuItem<T>>? items;
+//   final List<ComboEntry<T>>? items;
 //   final List<Widget> Function(BuildContext)? selectedItemBuilder;
 //   final T? value;
 //   final Widget? hint;
@@ -52,7 +61,7 @@
 //   final bool isExpanded;
 //   final double? itemHeight;
 //   final Color? focusColor;
-//   final FocusNode? focusNodev;
+//   final FocusNode? focusNode;
 //   final bool autofocus;
 //   final Color? dropdownColor;
 //   final double? menuMaxHeight;
@@ -62,7 +71,7 @@
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return Woue.provider.buildSlider(
+//     return Woue.provider.buildCombo(
 //         value,
 //         onChanged,
 //         onChangeStart,

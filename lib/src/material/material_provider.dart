@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:woue_components/src/woue_provider.dart';
 
-
 class MaterialProvider extends WoueProvider {
   const MaterialProvider();
-
 
   @override
   Widget buildElevatedButton(
@@ -54,7 +52,7 @@ class MaterialProvider extends WoueProvider {
     IconThemeData? iconTheme,
   }) {
     return Chip(
-      avatar: avatar,
+        avatar: avatar,
         label: label,
         labelStyle: labelStyle,
         labelPadding: labelPadding,
@@ -69,8 +67,11 @@ class MaterialProvider extends WoueProvider {
         autofocus: autofocus,
         backgroundColor: backgroundColor,
         padding: padding,
-        visualDensity: visualDensity!=null? visualDensity as VisualDensity:null,
-        materialTapTargetSize: materialTapTargetSize!=null?materialTapTargetSize as MaterialTapTargetSize:null,
+        visualDensity:
+            visualDensity != null ? visualDensity as VisualDensity : null,
+        materialTapTargetSize: materialTapTargetSize != null
+            ? materialTapTargetSize as MaterialTapTargetSize
+            : null,
         elevation: elevation,
         shadowColor: shadowColor,
         surfaceTintColor: surfaceTintColor,
