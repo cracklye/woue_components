@@ -9,8 +9,8 @@ class ComboEntry<T> {
 }
 
 class Combo<T> extends StatelessWidget {
-  Combo({
-    Key? key,
+  const Combo({
+    super.key,
     required this.items,
    // this.selectedItemBuilder,
     this.value,

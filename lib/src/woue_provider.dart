@@ -1,7 +1,5 @@
 import 'package:flutter/src/services/text_input.dart';
 import 'package:flutter/src/services/text_formatter.dart';
-import 'package:flutter/src/material/text_field.dart';
-import 'package:flutter/src/material/input_decorator.dart';
 import 'package:flutter/src/gestures/recognizer.dart';
 import 'dart:ui';
 
