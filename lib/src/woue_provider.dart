@@ -1,14 +1,26 @@
+import 'package:flutter/src/services/text_input.dart';
+import 'package:flutter/src/services/text_formatter.dart';
+import 'package:flutter/src/material/text_field.dart';
+import 'package:flutter/src/material/input_decorator.dart';
+import 'package:flutter/src/gestures/recognizer.dart';
+import 'dart:ui';
+
 import 'package:flutter/widgets.dart';
+import 'package:woue_components/src/widgets/combo.dart';
+import 'package:woue_components/src/widgets/dropdown_button.dart';
 
 abstract class WoueProvider {
   const WoueProvider();
-  Widget buildDivider({double? height, double? thickness, double? indent, double? endIndent, Color? color});
-  
-     
+  Widget buildDivider(
+      {double? height,
+      double? thickness,
+      double? indent,
+      double? endIndent,
+      Color? color});
+
   // Widget buildExpandedPanelList(List<ExpandedListItem> items,
   //     ) ;
-      
-  
+
   Widget buildChip({
     Widget? avatar,
     required Widget label,
@@ -123,5 +135,263 @@ abstract class WoueProvider {
     double? horizontalTitleGap,
     double? minVerticalPadding,
     double? minLeadingWidth,
+  );
+
+  Widget buildTextField(
+      Key? key,
+      TextEditingController? controller,
+      FocusNode? focusNode,
+      String? placeholder,
+      TextInputType? keyboardType,
+      TextInputAction? textInputAction,
+      textCapitalization,
+      TextStyle? style,
+      StrutStyle? strutStyle,
+      TextAlign? textAlign,
+      TextAlignVertical? textAlignVertical,
+      TextDirection? textDirection,
+      bool? readOnly,
+      ToolbarOptions? toolbarOptions,
+      bool? showCursor,
+      bool? autofocus,
+      String? obscuringCharacter,
+      bool? obscureText,
+      bool? autocorrect,
+      SmartDashesType? smartDashesType,
+      SmartQuotesType? smartQuotesType,
+      bool? enableSuggestions,
+      int? maxLines,
+      int? minLines,
+      bool? expands,
+      int? maxLength,
+      maxLengthEnforcement,
+      ValueChanged<String>? onChanged,
+      VoidCallback? onEditingComplete,
+      ValueChanged<String>? onSubmitted,
+      AppPrivateCommandCallback? onAppPrivateCommand,
+      List? inputFormatters,
+      bool? enabled,
+      double? cursorWidth,
+      double? cursorHeight,
+      Radius? cursorRadius,
+      Color? cursorColor,
+      BoxHeightStyle? selectionHeightStyle,
+      BoxWidthStyle? selectionWidthStyle,
+      Brightness? keyboardAppearance,
+      EdgeInsets? scrollPadding,
+      DragStartBehavior? dragStartBehavior,
+      bool? enableInteractiveSelection,
+      TextSelectionControls? selectionControls,
+      GestureTapCallback? onTap,
+      MouseCursor? mouseCursor,
+      buildCounter,
+      ScrollController? scrollController,
+      ScrollPhysics? scrollPhysics,
+      Iterable<String>? autofillHints,
+      Clip? clipBehavior,
+      String? restorationId,
+      bool? scribbleEnabled,
+      bool? enableIMEPersonalizedLearning);
+
+  Widget buildSelectableText(
+      String data,
+      FocusNode? focusNode,
+      TextStyle? style,
+      StrutStyle? strutStyle,
+      TextAlign? textAlign,
+      TextDirection? textDirection,
+      double? textScaleFactor,
+      bool? showCursor,
+      bool? autofocus,
+      ToolbarOptions? toolbarOptions,
+      int? minLines,
+      int? maxLines,
+      double? cursorWidth,
+      double? cursorHeight,
+      Radius? cursorRadius,
+      Color? cursorColor,
+      BoxHeightStyle? selectionHeightStyle,
+      BoxWidthStyle? selectionWidthStyle,
+      DragStartBehavior? dragStartBehavior,
+      bool? enableInteractiveSelection,
+      TextSelectionControls? selectionControls,
+      GestureTapCallback? onTap,
+      ScrollPhysics? scrollPhysics,
+      String? semanticsLabel,
+      TextHeightBehavior? textHeightBehavior,
+      TextWidthBasis? textWidthBasis,
+      SelectionChangedCallback? onSelectionChanged);
+
+  Widget buildCheckbox(
+      bool? value,
+      bool tristate,
+      ValueChanged<bool?>? onChanged,
+      MouseCursor? mouseCursor,
+      Color? activeColor,
+      Color? fillColor,
+      Color? checkColor,
+      Color? focusColor,
+      Color? hoverColor,
+      Color? overlayColor,
+      double? splashRadius,
+      materialTapTargetSize,
+      visualDensity,
+      FocusNode? focusNode,
+      bool autofocus,
+      OutlinedBorder? shape,
+      BorderSide? side);
+
+  Widget buildToggle(
+      bool value,
+      ValueChanged<bool>? onChanged,
+      Color? activeColor,
+      Color? activeTrackColor,
+      Color? inactiveThumbColor,
+      Color? inactiveTrackColor,
+      ImageProvider<Object>? activeThumbImage,
+      ImageErrorListener? onActiveThumbImageError,
+      ImageProvider<Object>? inactiveThumbImage,
+      ImageErrorListener? onInactiveThumbImageError,
+      Color? thumbColor,
+      Color? trackColor,
+      materialTapTargetSize,
+      DragStartBehavior dragStartBehavior,
+      MouseCursor? mouseCursor,
+      Color? focusColor,
+      Color? hoverColor,
+      Color? overlayColor,
+      double? splashRadius,
+      FocusNode? focusNode,
+      bool autofocus);
+
+  Future<dynamic> buildShowDialog({
+    required BuildContext context,
+    required WidgetBuilder builder,
+    bool barrierDismissible = true,
+    Color? barrierColor,
+    String? barrierLabel,
+    bool useSafeArea = true,
+    bool useRootNavigator = true,
+    RouteSettings? routeSettings,
+    Offset? anchorPoint,
+  });
+
+  Widget buildContentDialog(Widget? title, Widget? content,
+      List<Widget>? actions, style, BoxConstraints? constraints);
+
+  Widget buildTextFormField(
+    controller,
+    String? initialValue,
+    FocusNode? focusNode,
+    String? placeholder,
+    TextInputType? keyboardType,
+    // TextCapitalization textCapitalization = TextCapitalization.none,
+    // TextInputAction? textInputAction,
+    TextStyle? style,
+    StrutStyle? strutStyle,
+    TextDirection? textDirection,
+    TextAlign textAlign,
+    TextAlignVertical? textAlignVertical,
+    bool autofocus,
+    bool readOnly,
+    ToolbarOptions? toolbarOptions,
+    bool? showCursor,
+    String obscuringCharacter,
+    bool obscureText,
+    bool autocorrect,
+    SmartDashesType? smartDashesType,
+    SmartQuotesType? smartQuotesType,
+    bool enableSuggestions,
+    // MaxLengthEnforcement? maxLengthEnforcement,
+    int? maxLines,
+    int? minLines,
+    bool expands,
+    int? maxLength,
+    ValueChanged<String>? onChanged,
+    GestureTapCallback? onTap,
+    VoidCallback? onEditingComplete,
+    ValueChanged<String>? onFieldSubmitted,
+    onSaved,
+    validator,
+    // List<TextInputFormatter>? inputFormatters,
+    bool? enabled,
+    double cursorWidth,
+    double? cursorHeight,
+    Radius? cursorRadius,
+    Color? cursorColor,
+    // Brightness? keyboardAppearance,
+    EdgeInsets scrollPadding,
+    bool? enableInteractiveSelection,
+    TextSelectionControls? selectionControls,
+    // InputCounterWidgetBuilder? buildCounter,
+    ScrollPhysics? scrollPhysics,
+    Iterable<String>? autofillHints,
+    AutovalidateMode? autovalidateMode,
+    ScrollController? scrollController,
+    // super.restorationId,
+    bool enableIMEPersonalizedLearning,
+    MouseCursor? mouseCursor,
+  );
+
+  Widget buildDropdownButton<T>(
+      Function(T?) onChanged,
+      List<DropDownItem> items,
+      Widget? leading,
+      Widget? title,
+      Widget? icon,
+      double verticalOffset,
+      bool closeAfterClick,
+      bool disabled,
+      FocusNode? focusNode,
+      bool autofocus,
+      placement,
+      ShapeBorder? menuShape,
+      Color? menuColor);
+
+  Widget buildCombo<T>(
+      T? value,
+      List<ComboEntry<T>> options,
+      Function(T? selected)? onChanged,
+      bool disabled,
+      Widget? hint,
+      Widget? disabledHint,
+      void Function()? onTap,
+      int elevation,
+      TextStyle? style,
+      Widget? underline,
+      Widget? icon,
+      Color? iconDisabledColor,
+      Color? iconEnabledColor,
+      double iconSize,
+      bool isDense,
+      bool isExpanded,
+      double? itemHeight,
+      Color? focusColor,
+      FocusNode? focusNode,
+      bool autofocus,
+      Color? dropdownColor,
+      double? menuMaxHeight,
+      bool? enableFeedback,
+      AlignmentGeometry alignment,
+      BorderRadius? borderRadius);
+
+  Widget buildLinearProgressIndicator(
+    double? value,
+    Color? backgroundColor,
+    Color? color,
+    Animation<Color?>? valueColor,
+    double? minHeight,
+    String? semanticsLabel,
+    String? semanticsValue,
+  );
+
+  Widget buildCircularProgressIndicator(
+    double? value,
+    Color? backgroundColor,
+    Color? color,
+    Animation<Color?>? valueColor,
+    double strokeWidth,
+    String? semanticsLabel,
+    String? semanticsValue,
   );
 }

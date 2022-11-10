@@ -1,0 +1,22 @@
+name: woue_components_material
+description: A new Flutter package project.
+version: 0.0.1
+
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  woue_components: 
+    path: ../../woue_components
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+# The following section is specific to Flutter packages.
+flutter:
