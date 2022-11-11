@@ -235,6 +235,9 @@ class MaterialProvider extends w.WoueProvider {
     double? minLeadingWidth,
   ) {
     return ListTile(
+      onLongPress: onLongPress,
+      onTap: onTap,
+      
       key: key,
       tileColor: tileColor,
       shape: shape,

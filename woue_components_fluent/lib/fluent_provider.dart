@@ -208,8 +208,9 @@ class FluentProvider extends w.WoueProvider {
   ) {
     return GestureDetector(
         onTap: onTap,
-        onLongPress: onLongPress,
+        onDoubleTap: onLongPress,
         child: ListTile(
+          
           key: key,
           // tileColor: tileColor,
           // shape: shape,
