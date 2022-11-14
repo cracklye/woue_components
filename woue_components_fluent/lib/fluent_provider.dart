@@ -194,6 +194,7 @@ class FluentProvider extends w.WoueProvider {
     bool enabled,
     void Function()? onTap,
     void Function()? onLongPress,
+    void Function()? onDoubleTap,
     MouseCursor? mouseCursor,
     bool selected,
     Color? focusColor,
@@ -207,11 +208,13 @@ class FluentProvider extends w.WoueProvider {
     double? minLeadingWidth,
   ) {
     return GestureDetector(
-        onTap: onTap,
-        onDoubleTap: onLongPress,
+        onDoubleTap: onDoubleTap,
+        onLongPress: onLongPress,
+        behavior: HitTestBehavior.opaque,
         child: ListTile(
-          
           key: key,
+
+          onPressed: onTap,
           // tileColor: tileColor,
           // shape: shape,
           leading: leading,
@@ -345,6 +348,11 @@ class FluentProvider extends w.WoueProvider {
       maxLength: maxLength,
       expands: expands ?? false,
       enabled: enabled,
+      onChanged: onChanged,
+      onSubmitted: onSubmitted,
+      onEditingComplete: onEditingComplete,
+      onTap: onTap,
+      focusNode: focusNode,
     );
   }
 
@@ -438,7 +446,7 @@ class FluentProvider extends w.WoueProvider {
       ValueChanged<String>? onChanged,
       GestureTapCallback? onTap,
       VoidCallback? onEditingComplete,
-      ValueChanged<String>? onFieldSubmitted,
+      ValueChanged<String>? onSubmitted,
       onSaved,
       validator,
       bool? enabled,
@@ -456,6 +464,11 @@ class FluentProvider extends w.WoueProvider {
       bool enableIMEPersonalizedLearning,
       MouseCursor? mouseCursor) {
     return FormeFluentTextBox(
+      onSubmitted: onSubmitted,
+      onTap: onTap,
+      obscureText: obscureText,
+      //enabled: enabled,
+      
       scrollController: scrollController,
       initialValue: initialValue,
       placeholder: placeholder,
@@ -464,6 +477,10 @@ class FluentProvider extends w.WoueProvider {
       maxLines: maxLines,
       minLines: minLines,
       expands: expands,
+      onChanged: onChanged,
+      onSaved: onSaved,
+      validator: validator,
+      readOnly: readOnly, autocorrect: autocorrect, // autofocus:autofocus, ,
     );
   }
 

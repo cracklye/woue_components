@@ -222,6 +222,7 @@ class MaterialProvider extends w.WoueProvider {
     bool enabled,
     void Function()? onTap,
     void Function()? onLongPress,
+    void Function()? onDoubleTap,
     MouseCursor? mouseCursor,
     bool selected,
     Color? focusColor,
@@ -237,7 +238,7 @@ class MaterialProvider extends w.WoueProvider {
     return ListTile(
       onLongPress: onLongPress,
       onTap: onTap,
-      
+      //onDoubleTap: onDoubleTap,
       key: key,
       tileColor: tileColor,
       shape: shape,

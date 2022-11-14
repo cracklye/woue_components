@@ -1,6 +1,8 @@
+import 'package:fluent_ui/fluent_ui.dart' as f;
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/woue_components.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:woue_components_fluent/formfields/fluent_text_formfield.dart';
 
 class TestWidget extends StatelessWidget {
   const TestWidget({super.key});
@@ -36,6 +38,8 @@ class TestWidget extends StatelessWidget {
         _buildTextButtonTest(context),
         _buildHeader("Textbox"),
         _buildTextBoxTest(context),
+        _buildHeader("Textbox Field"),
+        _buildTextBoxFieldTest(context),
         _buildHeader("Toggle"),
         _buildToggleTest(context),
         _buildHeader("Linear Progress"),
@@ -46,6 +50,41 @@ class TestWidget extends StatelessWidget {
     ));
   }
 
+  Widget _buildTextBoxFieldTest(BuildContext context) {
+    return Wrap(children: [
+      TextFormField(
+        onChanged: (value) =>
+            handleMessage("TextBoxField", "onChanged($value)"),
+        onSaved: (value) => handleMessage("TextBoxField", "onSaved($value)"),
+        onSubmitted: (value) =>
+            handleMessage("TextBoxField", "onFieldSubmitted($value)"),
+      ),
+      FluentFormField(
+        onChanged: (value) =>
+            handleMessage("TextBoxField", "onChanged($value)"),
+        onSaved: (value) => handleMessage("TextBoxField", "onSaved($value)"),
+        onSubmitted: (value) =>
+            handleMessage("TextBoxField", "onFieldSubmitted($value)"),
+      ),
+
+      TextField(
+        //focusNode: _focusNode,
+        onChanged: (value) => print("onChanged($value)"),
+        //onSaved: (value) => print( "onSaved($value)"),
+
+        onSubmitted: (value) {
+          print(value);
+
+          // or do whatever you want when you are done editing
+          // call your method/print values etc
+        },
+        //controller: _textController,
+      )
+
+      // f.TextBox(onSubmitted: (value) => print("On Submitted $value"),)
+    ]);
+  }
+
   Widget _buildListTileTest(BuildContext context) {
     return Wrap(children: [
       ListTile(
@@ -53,6 +92,11 @@ class TestWidget extends StatelessWidget {
         title: Text("Title"),
         subtitle: Text("Subtitle"),
         trailing: Text("Trailing"),
+        onTap: () => handleMessage("ListTile", "Have clicked on the onTap"),
+        onLongPress: () =>
+            handleMessage("ListTile", "Have clicked on the long press"),
+        onDoubleTap: () =>
+            handleMessage("ListTile", "Have clicked on the double click"),
       )
     ]);
   }

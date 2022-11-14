@@ -18,6 +18,7 @@ class ListTile extends StatelessWidget {
     this.enabled = true,
     this.onTap,
     this.onLongPress,
+    this.onDoubleTap,
     this.mouseCursor,
     this.selected = false,
     this.focusColor,
@@ -48,6 +49,7 @@ class ListTile extends StatelessWidget {
   final bool enabled;
   final void Function()? onTap;
   final void Function()? onLongPress;
+  final void Function()? onDoubleTap;
   final MouseCursor? mouseCursor;
   final bool selected;
   final Color? focusColor;
@@ -79,6 +81,7 @@ class ListTile extends StatelessWidget {
         enabled,
         onTap,
         onLongPress,
+        onDoubleTap,
         mouseCursor,
         selected,
         focusColor,

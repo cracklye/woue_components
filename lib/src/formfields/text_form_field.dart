@@ -35,7 +35,7 @@ class TextFormField extends StatelessWidget {
     this.onChanged,
     this.onTap,
     this.onEditingComplete,
-    this.onFieldSubmitted,
+    this.onSubmitted,
     this.onSaved,
     this.validator,
     // List<TextInputFormatter>? inputFormatters,
@@ -87,7 +87,7 @@ class TextFormField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final GestureTapCallback? onTap;
   final VoidCallback? onEditingComplete;
-  final ValueChanged<String>? onFieldSubmitted;
+  final ValueChanged<String>? onSubmitted;
   final onSaved;
   final validator;
   // List<TextInputFormatter>? inputFormatters,
@@ -143,7 +143,7 @@ class TextFormField extends StatelessWidget {
       onChanged,
       onTap,
       onEditingComplete,
-      onFieldSubmitted,
+      onSubmitted,
       onSaved,
       validator,
       // List<TextInputFormatter>? inputFormatters,

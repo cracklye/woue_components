@@ -84,10 +84,6 @@ class FluentFormField extends FormField<String> {
             builder: (FormFieldState<String> state) {
               TextEditingController controller =
                   TextEditingController(text: initialValue);
-// field.didChange(value);
-//              if (onChanged != null) {
-//                onChanged(value);
-//              }
               void onChangedHandler(String value) {
                 state.didChange(value);
                 if (onChanged != null) {
@@ -98,7 +94,8 @@ class FluentFormField extends FormField<String> {
               //_controller.text= state.value??"";
               updateTextController(controller, state.value ?? "");
 
-              return TextBox(
+              var toRtn = TextBox(
+                
                 key: key,
                 controller: controller,
                 autocorrect: autocorrect,
@@ -165,6 +162,13 @@ class FluentFormField extends FormField<String> {
                 textInputAction: textInputAction,
                 toolbarOptions: toolbarOptions,
               );
+
+              if (state.hasError) {
+                return Wrap(
+                    children: [toRtn, Text("Error ${state.errorText}")]);
+              } else {
+                return toRtn;
+              }
             });
 
   static void updateTextController(
