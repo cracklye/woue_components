@@ -211,9 +211,10 @@ class FluentProvider extends w.WoueProvider {
         onDoubleTap: onDoubleTap,
         onLongPress: onLongPress,
         behavior: HitTestBehavior.opaque,
-        child: ListTile(
+        child: ListTile.selectable(
           key: key,
 
+          selected: selected,
           onPressed: onTap,
           // tileColor: tileColor,
           // shape: shape,
@@ -468,7 +469,7 @@ class FluentProvider extends w.WoueProvider {
       onTap: onTap,
       obscureText: obscureText,
       //enabled: enabled,
-      
+
       scrollController: scrollController,
       initialValue: initialValue,
       placeholder: placeholder,

@@ -21,16 +21,12 @@ class ColourFormField extends FormField<int?> {
             key: key,
             initialValue: initialValue,
             builder: (state) {
-              // final CheckboxFieldState state =
-              //     baseState as CheckboxFieldState;
               var tb = ColourButton(
                   iconSelect: iconSelect,
                   iconDelete: iconDelete,
                   color: initialValue != null ? Color(initialValue) : null,
                   onChange: ((p0) =>
                       state.didChange(p0 != null ? p0.value : null)));
-
-              // var tb = Checkbox(checked: state.value, onChanged: state.didChange);
               if (state.hasError) {
                 return Wrap(children: [tb, Text("Error ${state.errorText}")]);
               } else {
@@ -96,7 +92,6 @@ class _ColourButtonState extends State<ColourButton> {
   }
 
   _doShowDialog(BuildContext context) async {
-// raise the [showDialog] widget
     await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -114,7 +109,6 @@ class _ColourButtonState extends State<ColourButton> {
             ElevatedButton(
               child: const Text('No Colour'),
               onPressed: () {
-                // setState(() => currentColor = pickerColor);
                 widget.onChange(_color);
                 Navigator.of(context).pop();
               },
@@ -122,7 +116,6 @@ class _ColourButtonState extends State<ColourButton> {
             ElevatedButton(
               child: const Text('Select'),
               onPressed: () {
-                // setState(() => currentColor = pickerColor);
                 widget.onChange(_color);
                 Navigator.of(context).pop();
               },

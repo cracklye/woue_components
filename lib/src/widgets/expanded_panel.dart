@@ -35,13 +35,13 @@ class _ExpandedPanelState extends State<ExpandedPanel> {
 
       if (indexOpened == i) {
         //children.add(SingleChildScrollView(child: item.content(context)));
-        children.add(Expanded(child:item.content(context)));
+        children.add(Expanded(child: item.content(context)));
         children.add(Container());
       }
     }
-return Column(
+    return Column(
       children: children,
-    ); 
+    );
     return Expanded(
         child: Column(
       children: children,
@@ -55,12 +55,13 @@ return Column(
         width: double.infinity,
         child: Container(
           decoration: BoxDecoration(
-            color:const  Color.fromARGB(255, 228, 228, 228),
+            color: const Color.fromARGB(255, 228, 228, 228),
             // widget.headerBackgroundColor?.resolve(states) ??
             //     backgroundColor(_theme, states),
             border: Border.all(
               width: 2,
-              color:const  Color.fromARGB(255, 212, 212, 212), //borderColor(_theme, states),
+              color: const Color.fromARGB(
+                  255, 212, 212, 212), //borderColor(_theme, states),
             ),
             borderRadius: BorderRadius.vertical(
               top: const Radius.circular(4.0),
@@ -68,7 +69,7 @@ return Column(
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all( 3.0),
+            padding: const EdgeInsets.all(3.0),
             child: item.title(
               context,
               isExpanded,
