@@ -12,7 +12,7 @@ dependencies:
   #fluent_ui:fluent_ui:
   ##macos_ui:
   flutter_colorpicker:
-
+  loggy:
   
 dev_dependencies:
   flutter_test:

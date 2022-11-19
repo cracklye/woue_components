@@ -29,7 +29,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       if (event.designFramework == DesignFrameworkOptions.fluent) {
         Woue.init(FluentProvider());
       } else {
-        Woue.init(MaterialProvider());
+        Woue.init(const MaterialProvider());
       }
 
       emit(AppState(event.designFramework));

@@ -42,10 +42,6 @@ class _ExpandedPanelState extends State<ExpandedPanel> {
     return Column(
       children: children,
     );
-    return Expanded(
-        child: Column(
-      children: children,
-    ));
   }
 
   Widget buildHeader(BuildContext context, ExpandedPanelItem item, int index,

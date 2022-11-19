@@ -1,7 +1,4 @@
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
-import 'package:flutter/foundation.dart';
-
-import 'package:provider/provider.dart';
 import 'package:woue_app/widgets/action_bar.dart';
 import 'package:woue_app/widgets/test_page.dart';
 // import 'package:system_theme/system_theme.dart';
@@ -34,17 +31,19 @@ class AppFluent extends StatelessWidget {
       ),
       // initialRoute: '/',
       // routes: {'/': (context) => MyHomePage()},
-      home: MyHomePage(),
+      home:const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return NavigationView(
-      appBar: NavigationAppBar(
+      appBar: const NavigationAppBar(
         title: Text("Windows App"),
       ),
       pane: NavigationPane(
@@ -57,7 +56,7 @@ class MyHomePage extends StatelessWidget {
             PaneItem(
               icon: const Icon(FluentIcons.button_control),
               title: const Text('Hi!'),
-              body: ScaffoldPage(
+              body: const ScaffoldPage(
                 header: Text(
                   "Sample Page 1",
                   style: TextStyle(fontSize: 60),
@@ -69,7 +68,7 @@ class MyHomePage extends StatelessWidget {
             PaneItem(
               icon: const Icon(FluentIcons.button_control),
               title: const Text('Low!'),
-              body: ScaffoldPage(
+              body: const ScaffoldPage(
                 header: Text(
                   "Sample Page 2",
                   style: TextStyle(fontSize: 60),

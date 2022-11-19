@@ -1,10 +1,11 @@
-import 'package:fluent_ui/fluent_ui.dart' as f;
+
 import 'package:flutter/widgets.dart';
+import 'package:loggy/loggy.dart';
 import 'package:woue_components/woue_components.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:woue_components_fluent/formfields/fluent_text_formfield.dart';
 
-class TestWidget extends StatelessWidget {
+class TestWidget extends StatelessWidget with UiLoggy {
   const TestWidget({super.key});
 
   @override
@@ -69,11 +70,11 @@ class TestWidget extends StatelessWidget {
 
       TextField(
         //focusNode: _focusNode,
-        onChanged: (value) => print("onChanged($value)"),
+        onChanged: (value) => loggy.debug("onChanged($value)"),
         //onSaved: (value) => print( "onSaved($value)"),
 
         onSubmitted: (value) {
-          print(value);
+          loggy.debug(value);
 
           // or do whatever you want when you are done editing
           // call your method/print values etc
@@ -88,10 +89,10 @@ class TestWidget extends StatelessWidget {
   Widget _buildListTileTest(BuildContext context) {
     return Wrap(children: [
       ListTile(
-        leading: Text("Lead"),
-        title: Text("Title"),
-        subtitle: Text("Subtitle"),
-        trailing: Text("Trailing"),
+        leading:const  Text("Lead"),
+        title: const Text("Title"),
+        subtitle:const  Text("Subtitle"),
+        trailing: const Text("Trailing"),
         onTap: () => handleMessage("ListTile", "Have clicked on the onTap"),
         onLongPress: () =>
             handleMessage("ListTile", "Have clicked on the long press"),
@@ -102,12 +103,12 @@ class TestWidget extends StatelessWidget {
   }
 
   Widget _buildSelectableTextTest(BuildContext context) {
-    return Wrap(children: [SelectableText("This is the text to select")]);
+    return Wrap(children:const  [SelectableText("This is the text to select")]);
   }
 
   Widget _buildSliderTest(BuildContext context) {
     return Wrap(children: [
-      Text("Division 5 [1-200]"),
+      const Text("Division 5 [1-200]"),
       Slider(
         value: 40,
         min: 1,
@@ -115,7 +116,7 @@ class TestWidget extends StatelessWidget {
         divisions: 5,
         onChanged: (p0) => handleMessage("Slider", "onChanged=>$p0"),
       ),
-      Text("Division 200 [1-200]"),
+     const  Text("Division 200 [1-200]"),
       Slider(
         value: 40,
         min: 1,
@@ -123,8 +124,8 @@ class TestWidget extends StatelessWidget {
         divisions: 200,
         onChanged: (p0) => handleMessage("Slider", "onChanged=>$p0"),
       ),
-      Text("No On Change"),
-      Slider(
+     const  Text("No On Change"),
+     const  Slider(
         value: 40,
         min: 1,
         max: 200,
@@ -134,21 +135,21 @@ class TestWidget extends StatelessWidget {
   }
 
   Widget _buildSubheaderTest(BuildContext context) {
-    return Wrap(children: [
-      SubHeader("The Sub Header"),
-      SubHeader("Sub Header with Icon", icon: MdiIcons.danceBallroom),
-      SubHeader("Subheader with colour", colorSplash: Color(0xAA440024)),
-      SubHeader("Sub Header with Icon and colour",
+    return Wrap(children:const  [
+       SubHeader("The Sub Header"),
+       SubHeader("Sub Header with Icon", icon: MdiIcons.danceBallroom),
+       SubHeader("Subheader with colour", colorSplash:  Color(0xAA440024)),
+       SubHeader("Sub Header with Icon and colour",
           icon: MdiIcons.danceBallroom,
-          colorSplash: Color.fromARGB(170, 106, 236, 81)),
+          colorSplash:  Color.fromARGB(170, 106, 236, 81)),
     ]);
   }
 
   Widget _buildTextButtonTest(BuildContext context) {
     return Wrap(children: [
-      TextButton(child: Text("This is the elevated Button")),
+     const  TextButton(child: Text("This is the elevated Button")),
       TextButton(
-        child: Text(
+        child:const  Text(
           "This is the elevated Button",
         ),
         onPressed: () => handleMessage("ElevatedButton", "on pressed"),
@@ -157,8 +158,8 @@ class TestWidget extends StatelessWidget {
   }
 
   Widget _buildTextBoxTest(BuildContext context) {
-    return Wrap(children: [
-      TextField(
+    return Wrap(children: const [
+       TextField(
         placeholder: "placebolder text",
       ),
     ]);
@@ -179,9 +180,9 @@ class TestWidget extends StatelessWidget {
 
   Widget _buildElevatedButtonTest(BuildContext context) {
     return Wrap(children: [
-      ElevatedButton(child: Text("This is the elevated Button")),
+     const  ElevatedButton(child: Text("This is the elevated Button")),
       ElevatedButton(
-        child: Text(
+        child: const Text(
           "This is the elevated Button",
         ),
         onPressed: () => handleMessage("ElevatedButton", "on pressed"),
@@ -192,38 +193,38 @@ class TestWidget extends StatelessWidget {
   Widget _buildIconButtonTest(BuildContext context) {
     return Wrap(children: [
       IconButton(
-        icon: Icon(MdiIcons.accessPointPlus),
+        icon: const Icon(MdiIcons.accessPointPlus),
         onPressed: () => handleMessage("IconButton", "Icon Button Pressed"),
       ),
-      IconButton(icon: Icon(MdiIcons.accessPointPlus))
+     const  IconButton(icon: Icon(MdiIcons.accessPointPlus))
     ]);
   }
 
   Widget _buildDividerTest(BuildContext context) {
-    return Wrap(children: [Divider()]);
+    return Wrap(children: const [Divider()]);
   }
 
   Widget _buildDropdownButtonTest(BuildContext context) {
     return Wrap(children: [
       DropDownButton(
-          title: Text("Title"),
-          leading: Text("Leading"),
-          trailing: Text("Trailing"),
+          title: const Text("Title"),
+          leading:const  Text("Leading"),
+          trailing:const  Text("Trailing"),
           items: [
             DropDownItem(
-              content: Text(
+              content: const Text(
                 "option 3",
               ),
               value: 3,
             ),
             DropDownItem(
-              content: Text(
+              content:const  Text(
                 "option 4",
               ),
               value: 4,
             ),
             DropDownItem(
-              content: Text(
+              content: const Text(
                 "option 5",
               ),
               value: 5,
@@ -235,24 +236,24 @@ class TestWidget extends StatelessWidget {
           //     handleMessage("DropDownButton", "on Changed => $value"))
           ),
       DropDownButton(
-          title: Text("Title"),
-          leading: Icon(MdiIcons.abjadArabic),
+          title: const Text("Title"),
+          leading:const  Icon(MdiIcons.abjadArabic),
           items: [
             DropDownItem(
               selected: true,
-              content: Text(
+              content: const Text(
                 "option 3",
               ),
               value: 3,
             ),
             DropDownItem(
-              content: Text(
+              content:const  Text(
                 "option 4",
               ),
               value: 4,
             ),
             DropDownItem(
-              content: Text(
+              content: const Text(
                 "option 5",
               ),
               value: 5,
@@ -274,17 +275,17 @@ class TestWidget extends StatelessWidget {
     return Wrap(children: [
       Combo<String>(
         items: [
-          ComboEntry(value: "Option 1", child: Text("Option 1")),
-          ComboEntry(value: "Option 2", child: Text("Option 2")),
-          ComboEntry(value: "Option 3", child: Text("Option 3"))
+          ComboEntry(value: "Option 1", child: const Text("Option 1")),
+          ComboEntry(value: "Option 2", child: const Text("Option 2")),
+          ComboEntry(value: "Option 3", child: const Text("Option 3"))
         ],
       ),
       Combo<String>(
         value: "Option 2",
         items: [
-          ComboEntry(value: "Option 1", child: Text("Option 1")),
-          ComboEntry(value: "Option 2", child: Text("Option 2")),
-          ComboEntry(value: "Option 3", child: Text("Option 3")),
+          ComboEntry(value: "Option 1", child: const Text("Option 1")),
+          ComboEntry(value: "Option 2", child: const Text("Option 2")),
+          ComboEntry(value: "Option 3", child: const Text("Option 3")),
         ],
         onChanged: (p0) => handleMessage("Combo", "onChanged = > $p0"),
       )
@@ -292,7 +293,7 @@ class TestWidget extends StatelessWidget {
   }
 
   Widget _buildCircularProgresstest(BuildContext context) {
-    return Wrap(children: [
+    return Wrap(children: const [
       CircularProgressIndicator(
         backgroundColor: Color(0xFFFF1010),
         strokeWidth: 10,
@@ -304,7 +305,7 @@ class TestWidget extends StatelessWidget {
   }
 
   Widget _buildLinearProgresstest(BuildContext context) {
-    return Wrap(children: [
+    return Wrap(children: const [
       LinearProgressIndicator(
           backgroundColor: Color(0xFFFF1010),
           minHeight: 20,
@@ -332,33 +333,33 @@ class TestWidget extends StatelessWidget {
   Widget _buildChiptest(BuildContext context) {
     return Wrap(
       children: [
-        Chip(
+      const   Chip(
           label: Text("No Click"),
         ),
         Chip(
-            label: Text("Clickable"),
+            label:const  Text("Clickable"),
             onDeleted: () => handleMessage("Chip", "Clicable -> OnDeleted")),
         Chip(
-          label: Text("Colour"),
+          label: const Text("Colour"),
           onDeleted: () => handleMessage("Chip", "Colour -> On delete"),
-          backgroundColor: Color(0xAA336633),
+          backgroundColor:const  Color(0xAA336633),
         ),
         Chip(
-          label: Text("Avatar"),
+          label:const  Text("Avatar"),
           onDeleted: () => handleMessage("Chip", "Avatar -> OnDeleted"),
-          avatar: Icon(MdiIcons.train),
+          avatar: const Icon(MdiIcons.train),
         ),
         Chip(
-          label: Text("Delete Tooltip"),
+          label: const Text("Delete Tooltip"),
           onDeleted: () => handleMessage("Chip", "Avatar -> OnDeleted"),
           deleteButtonTooltipMessage: "Custom Delete Tooltip Message",
-          avatar: Icon(MdiIcons.train),
+          avatar: const Icon(MdiIcons.train),
         )
       ],
     );
   }
 
   void handleMessage(String component, String message) {
-    print('[$component] => $message');
+    loggy.info('[$component] => $message');
   }
 }

@@ -11,14 +11,14 @@ class AppButtonBar extends StatelessWidget {
     return Wrap(
       children: [
         ElevatedButton(
-          child: Text("Fluenet"),
+          child: const Text("Fluenet"),
           onPressed: () => BlocProvider.of<AppBloc>(context)
-              .add(AppEventChangeFramework(DesignFrameworkOptions.fluent)),
+              .add(const AppEventChangeFramework(DesignFrameworkOptions.fluent)),
         ),
          ElevatedButton(
-          child: Text("Material"),
+          child: const Text("Material"),
           onPressed: () => BlocProvider.of<AppBloc>(context)
-              .add(AppEventChangeFramework(DesignFrameworkOptions.material)),
+              .add(const AppEventChangeFramework(DesignFrameworkOptions.material)),
         ),
       ],
     );

@@ -1,9 +1,9 @@
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as m;
-import 'package:flutter/src/services/text_formatter.dart';
-import 'package:flutter/src/gestures/recognizer.dart';
+
 
 import 'package:woue_components/woue_components.dart' as w;
 
@@ -476,7 +476,7 @@ class MaterialProvider extends w.WoueProvider {
       ValueChanged<String>? onChanged,
       GestureTapCallback? onTap,
       VoidCallback? onEditingComplete,
-      ValueChanged<String>? onFieldSubmitted,
+      ValueChanged<String>? onSubmitted,
       onSaved,
       validator,
       bool? enabled,
@@ -619,8 +619,9 @@ class MaterialProvider extends w.WoueProvider {
         items: options
             .map<m.DropdownMenuItem<T>>(
               (e) => m.DropdownMenuItem<T>(
-                child: e.child,
+                
                 value: e.value,
+                child: e.child,
               ),
             )
             .toList());

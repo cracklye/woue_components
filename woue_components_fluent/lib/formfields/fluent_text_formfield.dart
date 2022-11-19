@@ -3,8 +3,9 @@ import 'dart:ui' as ui;
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
+import 'package:loggy/loggy.dart';
 
-class FluentFormField extends FormField<String> {
+class FluentFormField extends FormField<String> with UiLoggy{
   FluentFormField(
       {Key? key,
       TextEditingController? controller,
@@ -176,7 +177,7 @@ class FluentFormField extends FormField<String> {
     dynamic newValue,
   ) {
     int offset = txtController.value.selection.extentOffset;
-    print(
+    logDebug(
         'Offset : $offset \nnew value: $newValue \nSelection= ${txtController.value.selection} \n Value:${txtController.value}');
 
     txtController.value = TextEditingValue(

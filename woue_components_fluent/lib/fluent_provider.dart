@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
+import 'package:loggy/loggy.dart';
 import 'package:woue_components/woue_components.dart' as w;
 
 //import 'package:woue_components/woue_components.dart';
@@ -545,8 +546,9 @@ class FluentProvider extends w.WoueProvider {
         value: value,
         items: options.map((e) {
           return ComboBoxItem<T>(
-            child: e.child,
+            
             value: e.value,
+            child: e.child,
           );
         }).toList(),
         onChanged: onChanged);
@@ -609,7 +611,7 @@ class FluentProvider extends w.WoueProvider {
   }
 }
 
-class FormeFluentTextBox extends FormField<String> {
+class FormeFluentTextBox extends FormField<String> with UiLoggy {
   final bool selectAllOnFocus;
 
   /// whether update value when text input is composing
@@ -726,13 +728,13 @@ class FormeFluentTextBox extends FormField<String> {
               // final bool enabled = baseState.enabled;
               final FormeFluentTextBoxState state =
                   baseState as FormeFluentTextBoxState;
-              FocusNode node = FocusNode(onKey: (node, event) {
-                print("node: $node, event $event");
-                return KeyEventResult.handled;
-              }, onKeyEvent: ((node, event) {
-                print("node: $node, event $event");
-                return KeyEventResult.handled;
-              }));
+              // FocusNode node = FocusNode(onKey: (node, event) {
+              //   logDebug("node: $node, event $event");
+              //   return KeyEventResult.handled;
+              // }, onKeyEvent: ((node, event) {
+              //   logDebug("node: $node, event $event");
+              //   return KeyEventResult.handled;
+              // }));
 
               var tb = TextBox(
                 iconButtonThemeData: iconButtonThemeData,

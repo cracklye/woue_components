@@ -7,7 +7,7 @@ import 'package:woue_components/woue_components.dart';
 import 'package:woue_components_material/material_provider.dart';
 
 void main() {
-  Woue.init(MaterialProvider());
+  Woue.init(const MaterialProvider());
   runApp(const MainApp());
 }
 

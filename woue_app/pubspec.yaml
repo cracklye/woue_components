@@ -41,7 +41,7 @@ dependencies:
   flutter_bloc: 8.0.1
   fluent_ui: ^4.0.3+1
   material_design_icons_flutter:
-
+  loggy:
 
 
 dev_dependencies:

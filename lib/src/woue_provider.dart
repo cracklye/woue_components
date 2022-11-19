@@ -1,8 +1,8 @@
-import 'package:flutter/src/services/text_input.dart';
-import 'package:flutter/src/services/text_formatter.dart';
-import 'package:flutter/src/gestures/recognizer.dart';
+
 import 'dart:ui';
 
+import 'package:flutter/gestures.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/src/widgets/combo.dart';
 import 'package:woue_components/src/widgets/dropdown_button.dart';

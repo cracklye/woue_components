@@ -1,5 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter/material.dart' as m;
 import 'package:woue_components/src/design_framework.dart';
 
 Future<void> showDialog({

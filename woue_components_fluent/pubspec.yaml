@@ -13,7 +13,7 @@ dependencies:
   woue_components: 
     path: ../../woue_components
   fluent_ui:
-  
+  loggy:
 dev_dependencies:
   flutter_test:
     sdk: flutter
