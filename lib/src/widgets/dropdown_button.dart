@@ -107,6 +107,7 @@ class DropDownButton<T> extends StatelessWidget {
   /// The placement of the flyout.
   ///
   /// [FlyoutPlacement.center] is used by default
+   // ignore: prefer_typing_uninitialized_variables
   final placement;
 
   /// The menu shape

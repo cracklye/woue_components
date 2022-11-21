@@ -56,6 +56,7 @@ class TextFormField extends StatelessWidget {
     this.enableIMEPersonalizedLearning = true,
     this.mouseCursor,
   });
+    // ignore: prefer_typing_uninitialized_variables
   final controller;
   final String? initialValue;
   final FocusNode? focusNode;
@@ -87,7 +88,9 @@ class TextFormField extends StatelessWidget {
   final GestureTapCallback? onTap;
   final VoidCallback? onEditingComplete;
   final ValueChanged<String>? onSubmitted;
+  // ignore: prefer_typing_uninitialized_variables
   final onSaved;
+  // ignore: prefer_typing_uninitialized_variables
   final validator;
   // List<TextInputFormatter>? inputFormatters,
   final bool? enabled;
@@ -110,8 +113,7 @@ class TextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Woue.provider.buildTextFormField(
+    return Woue.provider.buildTextFormField(
       controller,
       initialValue,
       focusNode,

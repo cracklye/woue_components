@@ -51,6 +51,7 @@ class ContentDialog extends StatelessWidget {
 
   /// The style used by this dialog. If non-null, it's merged with
   /// [ThemeData.dialogTheme]
+    // ignore: prefer_typing_uninitialized_variables
   final style;
 
   /// The constraints of the dialog. It defaults to `BoxConstraints(maxWidth: 368)`

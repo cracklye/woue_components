@@ -181,6 +181,7 @@ class Checkbox extends StatelessWidget {
   /// See also:
   ///
   ///  * [MaterialTapTargetSize], for a description of how this affects tap targets.
+    // ignore: prefer_typing_uninitialized_variables
   final materialTapTargetSize;
 
   /// {@template flutter.material.checkbox.visualDensity}
@@ -196,6 +197,7 @@ class Checkbox extends StatelessWidget {
   ///
   ///  * [ThemeData.visualDensity], which specifies the [visualDensity] for all
   ///    widgets within a [Theme].
+    // ignore: prefer_typing_uninitialized_variables
   final visualDensity;
 
   /// The color for the checkbox's [Material] when it has the input focus.

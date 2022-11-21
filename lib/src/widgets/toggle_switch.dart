@@ -231,6 +231,7 @@ class ToggleSwitch extends StatelessWidget {
   /// See also:
   ///
   ///  * [MaterialTapTargetSize], for a description of how this affects tap targets.
+  // ignore: prefer_typing_uninitialized_variables
   final  materialTapTargetSize;
 
   /// {@macro flutter.cupertino.CupertinoSwitch.dragStartBehavior}

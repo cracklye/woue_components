@@ -554,19 +554,7 @@ class FluentProvider extends w.WoueProvider {
         onChanged: onChanged);
   }
 
-  //   return Combobox<T>(
-  //     //TODO  placeholder: placeholder,
-  //     isExpanded: true,
-  //     items: options
-  //         .map((e) => ComboboxItem<T>(
-  //               value: e.value,
-  //               child: e.child,
-  //             ))
-  //         .toList(),
-  //     value: value,
-  //     onChanged: onChanged,
-  //   );
-  // }
+
   @override
   Widget buildLinearProgressIndicator(
     double? value,

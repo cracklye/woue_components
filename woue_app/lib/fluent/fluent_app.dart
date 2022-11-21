@@ -31,7 +31,7 @@ class AppFluent extends StatelessWidget {
       ),
       // initialRoute: '/',
       // routes: {'/': (context) => MyHomePage()},
-      home:const MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -41,7 +41,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return NavigationView(
       appBar: const NavigationAppBar(
         title: Text("Windows App"),
@@ -76,18 +75,6 @@ class MyHomePage extends StatelessWidget {
                 content: AppButtonBar(),
               ),
             ),
-            // PaneItem(
-            //     icon: Icon(FluentIcons.home),
-            //     title: Text("Home")
-            // ),
-            // PaneItem(
-            //     icon: Icon(FluentIcons.insert),
-            //     title: Text("Insert")
-            // ),
-            // PaneItem(
-            // icon: Icon(FluentIcons.view),
-            // title: Text("View")
-            // )
           ]),
     );
   }
