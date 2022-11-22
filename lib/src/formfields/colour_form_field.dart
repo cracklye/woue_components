@@ -26,8 +26,7 @@ class ColourFormField extends FormField<int?> {
                   iconSelect: iconSelect,
                   iconDelete: iconDelete,
                   color: initialValue != null ? Color(initialValue) : null,
-                  onChange: ((p0) =>
-                      state.didChange(p0?.value)));
+                  onChange: ((p0) => state.didChange(p0?.value)));
               if (state.hasError) {
                 return Wrap(children: [tb, Text("Error ${state.errorText}")]);
               } else {
@@ -82,7 +81,6 @@ class _ColourButtonState extends State<ColourButton> with UiLoggy {
         )
       ],
     );
-
   }
 
   void _clearValue() {
@@ -137,7 +135,57 @@ class _ColourButtonState extends State<ColourButton> with UiLoggy {
   }
 }
 
-class ColourPicker extends StatefulWidget  {
+class ColourDropdownButton extends StatefulWidget {
+  const ColourDropdownButton(
+      {super.key,
+      this.enableErase = false,
+      this.enableNull = false,
+      this.initialValue,
+      required this.onChanged});
+  final bool enableNull;
+  final bool enableErase;
+  final Function(Color? colour) onChanged;
+  final Color? initialValue;
+  @override
+  State<ColourDropdownButton> createState() => _ColourDropdownButtonState();
+}
+
+class _ColourDropdownButtonState extends State<ColourDropdownButton> {
+  late Color? _color;
+
+  @override
+  void initState() {
+    _color = widget.initialValue;
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DropDownButton<Color?>(
+        onPressed: (p0) => print('onpress'),
+        title: SizedBox(
+          height: 10,
+          width: 30,
+          child: Container(color: _color ?? const Color(0x00000000)),
+        ),
+        items: [
+          DropDownItem<Color?>(
+              value: _color,
+              content: SizedBox(
+                  width: 300,
+                  height: 200,
+                  child: ColourPicker(onColorChanged: ((color) {
+                    widget.onChanged(color);
+                    setState(() {
+                      _color = color;
+                    });
+                  })))),
+        ]);
+  }
+}
+
+class ColourPicker extends StatefulWidget {
   final Color? pickerColor;
   final Function(Color? color)? onColorChanged;
 
@@ -147,7 +195,7 @@ class ColourPicker extends StatefulWidget  {
   State<ColourPicker> createState() => _ColourPickerState();
 }
 
-class _ColourPickerState extends State<ColourPicker> with UiLoggy{
+class _ColourPickerState extends State<ColourPicker> with UiLoggy {
   Color? _color;
   final TextEditingController _hex = TextEditingController();
   @override
@@ -194,7 +242,7 @@ class _ColourPickerState extends State<ColourPicker> with UiLoggy{
               _updateColour(c);
             }
           }
-        } catch (e){
+        } catch (e) {
           loggy.debug("Invalid hex value $value");
         }
       },
@@ -263,7 +311,9 @@ class _ColourPickerState extends State<ColourPicker> with UiLoggy{
         padding: const EdgeInsets.all(1),
         decoration: BoxDecoration(
             border: Border.all(
-                color: color == _color ?const  Color(0xFF000000) :const  Color(0x00000000))),
+                color: color == _color
+                    ? const Color(0xFF000000)
+                    : const Color(0x00000000))),
         child: GestureDetector(
           onTap: () => _updateColour(color),
           child: SizedBox(
