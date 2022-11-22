@@ -1,8 +1,8 @@
-
 import 'package:flutter/widgets.dart';
 import 'package:loggy/loggy.dart';
 import 'package:woue_components/woue_components.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:woue_components_fluent/atttachment.dart';
 import 'package:woue_components_fluent/formfields/fluent_text_formfield.dart';
 
 class TestWidget extends StatelessWidget with UiLoggy {
@@ -13,6 +13,8 @@ class TestWidget extends StatelessWidget with UiLoggy {
     return SingleChildScrollView(
         child: Column(
       children: [
+        _buildHeader("Attachments"),
+        _buildAttachments(context),
         _buildHeader("Checkbox"),
         _buildCheckboxtest(context),
         _buildHeader("Chip"),
@@ -49,6 +51,41 @@ class TestWidget extends StatelessWidget with UiLoggy {
         _buildCircularProgresstest(context),
       ],
     ));
+  }
+
+  Widget _buildAttachments(BuildContext context) {
+    return Wrap(children: [
+      SizedBox(
+        child: AttachmentSelect(),
+        height: 200,
+        width: 200,
+      ),
+      SizedBox(
+        child: AttachmentSelect(
+          selected: AttachmentInfo(
+              path:
+                  "C:\\Users\\meshuser\\Pictures\\2021_08_25_Chris Headshot 0072-tedit.jpg"),
+        ),
+        height: 200,
+        width: 200,
+      ),
+      SizedBox(
+        child: AttachmentSelect(
+          multiSelect: true,
+        ),
+        height: 200,
+        width: 700,
+      ),
+      SizedBox(
+        child: AttachmentSelect(
+          multiSelect: true,
+          selected: AttachmentInfo(
+              path: "C:\\Users\\meshuser\\Pictures\\temp_search.png"),
+        ),
+        //height: 100,
+        width: 700,
+      ),
+    ]);
   }
 
   Widget _buildTextBoxFieldTest(BuildContext context) {
@@ -89,9 +126,9 @@ class TestWidget extends StatelessWidget with UiLoggy {
   Widget _buildListTileTest(BuildContext context) {
     return Wrap(children: [
       ListTile(
-        leading:const  Text("Lead"),
+        leading: const Text("Lead"),
         title: const Text("Title"),
-        subtitle:const  Text("Subtitle"),
+        subtitle: const Text("Subtitle"),
         trailing: const Text("Trailing"),
         onTap: () => handleMessage("ListTile", "Have clicked on the onTap"),
         onLongPress: () =>
@@ -103,7 +140,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
   }
 
   Widget _buildSelectableTextTest(BuildContext context) {
-    return Wrap(children:const  [SelectableText("This is the text to select")]);
+    return Wrap(children: const [SelectableText("This is the text to select")]);
   }
 
   Widget _buildSliderTest(BuildContext context) {
@@ -116,7 +153,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
         divisions: 5,
         onChanged: (p0) => handleMessage("Slider", "onChanged=>$p0"),
       ),
-     const  Text("Division 200 [1-200]"),
+      const Text("Division 200 [1-200]"),
       Slider(
         value: 40,
         min: 1,
@@ -124,8 +161,8 @@ class TestWidget extends StatelessWidget with UiLoggy {
         divisions: 200,
         onChanged: (p0) => handleMessage("Slider", "onChanged=>$p0"),
       ),
-     const  Text("No On Change"),
-     const  Slider(
+      const Text("No On Change"),
+      const Slider(
         value: 40,
         min: 1,
         max: 200,
@@ -135,21 +172,21 @@ class TestWidget extends StatelessWidget with UiLoggy {
   }
 
   Widget _buildSubheaderTest(BuildContext context) {
-    return Wrap(children:const  [
-       SubHeader("The Sub Header"),
-       SubHeader("Sub Header with Icon", icon: MdiIcons.danceBallroom),
-       SubHeader("Subheader with colour", colorSplash:  Color(0xAA440024)),
-       SubHeader("Sub Header with Icon and colour",
+    return Wrap(children: const [
+      SubHeader("The Sub Header"),
+      SubHeader("Sub Header with Icon", icon: MdiIcons.danceBallroom),
+      SubHeader("Subheader with colour", colorSplash: Color(0xAA440024)),
+      SubHeader("Sub Header with Icon and colour",
           icon: MdiIcons.danceBallroom,
-          colorSplash:  Color.fromARGB(170, 106, 236, 81)),
+          colorSplash: Color.fromARGB(170, 106, 236, 81)),
     ]);
   }
 
   Widget _buildTextButtonTest(BuildContext context) {
     return Wrap(children: [
-     const  TextButton(child: Text("This is the elevated Button")),
+      const TextButton(child: Text("This is the elevated Button")),
       TextButton(
-        child:const  Text(
+        child: const Text(
           "This is the elevated Button",
         ),
         onPressed: () => handleMessage("ElevatedButton", "on pressed"),
@@ -159,7 +196,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
 
   Widget _buildTextBoxTest(BuildContext context) {
     return Wrap(children: const [
-       TextField(
+      TextField(
         placeholder: "placebolder text",
       ),
     ]);
@@ -180,7 +217,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
 
   Widget _buildElevatedButtonTest(BuildContext context) {
     return Wrap(children: [
-     const  ElevatedButton(child: Text("This is the elevated Button")),
+      const ElevatedButton(child: Text("This is the elevated Button")),
       ElevatedButton(
         child: const Text(
           "This is the elevated Button",
@@ -196,7 +233,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
         icon: const Icon(MdiIcons.accessPointPlus),
         onPressed: () => handleMessage("IconButton", "Icon Button Pressed"),
       ),
-     const  IconButton(icon: Icon(MdiIcons.accessPointPlus))
+      const IconButton(icon: Icon(MdiIcons.accessPointPlus))
     ]);
   }
 
@@ -208,8 +245,8 @@ class TestWidget extends StatelessWidget with UiLoggy {
     return Wrap(children: [
       DropDownButton(
           title: const Text("Title"),
-          leading:const  Text("Leading"),
-          trailing:const  Text("Trailing"),
+          leading: const Text("Leading"),
+          trailing: const Text("Trailing"),
           items: [
             DropDownItem(
               content: const Text(
@@ -218,7 +255,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
               value: 3,
             ),
             DropDownItem(
-              content:const  Text(
+              content: const Text(
                 "option 4",
               ),
               value: 4,
@@ -237,7 +274,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
           ),
       DropDownButton(
           title: const Text("Title"),
-          leading:const  Icon(MdiIcons.abjadArabic),
+          leading: const Icon(MdiIcons.abjadArabic),
           items: [
             DropDownItem(
               selected: true,
@@ -247,7 +284,7 @@ class TestWidget extends StatelessWidget with UiLoggy {
               value: 3,
             ),
             DropDownItem(
-              content:const  Text(
+              content: const Text(
                 "option 4",
               ),
               value: 4,
@@ -333,19 +370,19 @@ class TestWidget extends StatelessWidget with UiLoggy {
   Widget _buildChiptest(BuildContext context) {
     return Wrap(
       children: [
-      const   Chip(
+        const Chip(
           label: Text("No Click"),
         ),
         Chip(
-            label:const  Text("Clickable"),
+            label: const Text("Clickable"),
             onDeleted: () => handleMessage("Chip", "Clicable -> OnDeleted")),
         Chip(
           label: const Text("Colour"),
           onDeleted: () => handleMessage("Chip", "Colour -> On delete"),
-          backgroundColor:const  Color(0xAA336633),
+          backgroundColor: const Color(0xAA336633),
         ),
         Chip(
-          label:const  Text("Avatar"),
+          label: const Text("Avatar"),
           onDeleted: () => handleMessage("Chip", "Avatar -> OnDeleted"),
           avatar: const Icon(MdiIcons.train),
         ),

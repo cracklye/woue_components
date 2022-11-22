@@ -1,9 +1,9 @@
-
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:woue_components/src/widgets/attachment_select.dart';
 import 'package:woue_components/src/widgets/combo.dart';
 import 'package:woue_components/src/widgets/dropdown_button.dart';
 
@@ -393,4 +393,7 @@ abstract class WoueProvider {
     String? semanticsLabel,
     String? semanticsValue,
   );
+
+  Widget attachmentSelect(AttachmentInfo? selected, List<String>? extensions,
+      Function(AttachmentInfo? infos)? onChanged, bool multiSelect);
 }

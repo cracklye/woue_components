@@ -42,7 +42,7 @@ dependencies:
   fluent_ui: ^4.0.3+1
   material_design_icons_flutter:
   loggy:
-
+  desktop_drop:
 
 dev_dependencies:
   flutter_test:

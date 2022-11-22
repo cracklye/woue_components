@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/services.dart';
 import 'package:loggy/loggy.dart';
 import 'package:woue_components/woue_components.dart' as w;
+import 'package:woue_components_fluent/atttachment.dart';
 
 //import 'package:woue_components/woue_components.dart';
 
@@ -546,14 +547,12 @@ class FluentProvider extends w.WoueProvider {
         value: value,
         items: options.map((e) {
           return ComboBoxItem<T>(
-            
             value: e.value,
             child: e.child,
           );
         }).toList(),
         onChanged: onChanged);
   }
-
 
   @override
   Widget buildLinearProgressIndicator(
@@ -597,6 +596,15 @@ class FluentProvider extends w.WoueProvider {
       //semanticsValue: semanticsValue,
     );
   }
+
+  @override
+  Widget attachmentSelect(w.AttachmentInfo? selected,  List<String>? extensions,
+      Function(w.AttachmentInfo? infos)? onChanged, bool multiSelect) {
+        
+          return FluentAttachmentWidget(selected: selected, extensions: extensions,
+           onChanged: onChanged, enableMulti: multiSelect,);
+
+      }
 }
 
 class FormeFluentTextBox extends FormField<String> with UiLoggy {

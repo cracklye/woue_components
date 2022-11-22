@@ -4,7 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as m;
 
-
 import 'package:woue_components/woue_components.dart' as w;
 
 class MaterialProvider extends w.WoueProvider {
@@ -619,11 +618,20 @@ class MaterialProvider extends w.WoueProvider {
         items: options
             .map<m.DropdownMenuItem<T>>(
               (e) => m.DropdownMenuItem<T>(
-                
                 value: e.value,
                 child: e.child,
               ),
             )
             .toList());
+  }
+
+  @override
+  Widget attachmentSelect(
+      w.AttachmentInfo? selected,
+      List<String>? extensions,
+      Function(w.AttachmentInfo? infos)? onChanged,
+      bool multiSelect) {
+    // TODO: implement attachmentSelect
+    throw UnimplementedError();
   }
 }

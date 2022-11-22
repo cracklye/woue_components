@@ -13,6 +13,8 @@ dependencies:
   woue_components: 
     path: ../../woue_components
   fluent_ui:
+  
+  desktop_drop:
   loggy:
 dev_dependencies:
   flutter_test:

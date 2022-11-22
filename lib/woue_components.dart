@@ -26,7 +26,10 @@ export 'src/widgets/label_widget.dart';
 export 'src/widgets/selectable_text.dart';
 export 'src/widgets/toggle_switch.dart';
 export 'src/widgets/dialog.dart';
+export 'src/widgets/attachment_select.dart';
 
+
+export 'src/formfields/attachment_field.dart';
 export 'src/formfields/checkbox_field.dart';
 export 'src/formfields/colour_form_field.dart';
 //export 'src/formfields/forme_textbox.dart';
