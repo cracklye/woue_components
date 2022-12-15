@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:loggy/loggy.dart';
 import 'package:woue_components/woue_components.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:woue_components_fluent/atttachment.dart';
 import 'package:woue_components_fluent/formfields/fluent_text_formfield.dart';
 
 class TestWidget extends StatelessWidget with UiLoggy {
@@ -55,35 +54,35 @@ class TestWidget extends StatelessWidget with UiLoggy {
 
   Widget _buildAttachments(BuildContext context) {
     return Wrap(children: [
-      SizedBox(
-        child: AttachmentSelect(),
+      const SizedBox(
         height: 200,
         width: 200,
+        child: AttachmentSelect(),
       ),
       SizedBox(
+        height: 200,
+        width: 200,
         child: AttachmentSelect(
           selected: AttachmentInfo(
               path:
                   "C:\\Users\\meshuser\\Pictures\\2021_08_25_Chris Headshot 0072-tedit.jpg"),
         ),
-        height: 200,
-        width: 200,
       ),
-      SizedBox(
+      const SizedBox(
+        height: 200,
+        width: 700,
         child: AttachmentSelect(
           multiSelect: true,
         ),
-        height: 200,
-        width: 700,
       ),
       SizedBox(
+        //height: 100,
+        width: 700,
         child: AttachmentSelect(
           multiSelect: true,
           selected: AttachmentInfo(
               path: "C:\\Users\\meshuser\\Pictures\\temp_search.png"),
         ),
-        //height: 100,
-        width: 700,
       ),
     ]);
   }

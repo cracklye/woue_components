@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
@@ -492,8 +493,60 @@ class MaterialProvider extends w.WoueProvider {
       ScrollController? scrollController,
       bool enableIMEPersonalizedLearning,
       MouseCursor? mouseCursor) {
-    // TODO: implement buildTextFormField
-    throw UnimplementedError();
+    
+   // return Text("Hi");
+    return 
+    // SizedBox(
+    //     height: 150,
+    //     child: 
+    (    
+        TextFormField(
+            initialValue: initialValue,
+            controller: controller,
+            focusNode: focusNode,
+            keyboardType: keyboardType,
+            style: style,
+            strutStyle: strutStyle,
+            textDirection: textDirection,
+            textAlign: textAlign,
+            textAlignVertical: textAlignVertical,
+            autofocus: autofocus,
+            readOnly: readOnly,
+            toolbarOptions: toolbarOptions,
+            showCursor: showCursor,
+            obscureText: obscureText,
+            obscuringCharacter: obscuringCharacter,
+            smartDashesType: smartDashesType,
+            smartQuotesType: smartQuotesType,
+            enableSuggestions: enableSuggestions,
+            maxLength: maxLength,
+            maxLines: maxLines,
+            minLines: minLines,
+            expands: false,
+            onChanged: onChanged,
+            onTap: onTap,
+            onEditingComplete: onEditingComplete,
+            onFieldSubmitted: onSubmitted,
+            onSaved: onSaved,
+            validator: validator,
+            enabled: enabled,
+            decoration: InputDecoration(
+              //border: UnderlineInputBorder(),
+              labelText: placeholder,
+            ),
+            cursorWidth: cursorWidth,
+            cursorHeight: cursorHeight,
+            cursorRadius: cursorRadius,
+            cursorColor: cursorColor,
+            scrollPadding: scrollPadding,
+            enableInteractiveSelection: enableInteractiveSelection,
+            selectionControls: selectionControls,
+            scrollPhysics: scrollPhysics,
+            autofillHints: autofillHints,
+            autovalidateMode: autovalidateMode,
+            scrollController: scrollController,
+            enableIMEPersonalizedLearning: enableIMEPersonalizedLearning,
+            mouseCursor: mouseCursor));
   }
 
   @override
@@ -626,11 +679,8 @@ class MaterialProvider extends w.WoueProvider {
   }
 
   @override
-  Widget attachmentSelect(
-      w.AttachmentInfo? selected,
-      List<String>? extensions,
-      Function(w.AttachmentInfo? infos)? onChanged,
-      bool multiSelect) {
+  Widget attachmentSelect(w.AttachmentInfo? selected, List<String>? extensions,
+      Function(w.AttachmentInfo? infos)? onChanged, bool multiSelect) {
     // TODO: implement attachmentSelect
     throw UnimplementedError();
   }

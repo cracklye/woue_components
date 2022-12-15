@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:desktop_drop/desktop_drop.dart';
-import 'package:fluent_ui/fluent_ui.dart' as f;
+//import 'package:fluent_ui/fluent_ui.dart' as f;
 import 'package:flutter/material.dart' as m;
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/woue_components.dart';
@@ -55,7 +55,7 @@ class _FluentAttachmentWidgetState extends State<FluentAttachmentWidget> {
 
   Widget _buildNotSelected(BuildContext context) {
     return GestureDetector(
-      child: Expanded(
+      child: const Expanded(
           child: Center(child: Text("drag or click to select file(s)"))),
       onTap: () => print("Hi"),
     );
@@ -64,23 +64,6 @@ class _FluentAttachmentWidgetState extends State<FluentAttachmentWidget> {
   Widget _getContent(AttachmentInfo info) {
     return Image.file(File(info.path!));
   }
-
-  // Widget _buildContentMulti(BuildContext context) {
-  //   return SingleChildScrollView(
-  //     child: Column(
-  //         children: _selected!
-  //             .map((e) => ListTile(
-  //                 leading:
-  //                     SizedBox(width: 50, height: 50, child: _getContent(e)),
-  //                 title: Text(e.path!),
-  //                 trailing: IconButton(
-  //                   icon: Icon(f.FluentIcons.delete),
-  //                   onPressed: () => _removeItem(e),
-  //                 )))
-  //             .toList()),
-  //   );
-  //   //return Text(_selected.toString());
-  // }
 
   Widget _buildContentSingle(BuildContext context) {
     if (_selected != null) {
