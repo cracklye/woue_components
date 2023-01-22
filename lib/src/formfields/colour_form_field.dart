@@ -252,18 +252,18 @@ class _ColourPickerState extends State<ColourPicker> with UiLoggy {
   Widget _buildHistorySwatch(BuildContext context) {
     return Row(
       children: [
-        _buildColourSwatchEntry(context, const Color(0xFFFFFFFF)),
-        _buildColourSwatchEntry(context, const Color(0xFF00FFFF)),
-        _buildColourSwatchEntry(context, const Color(0xFFFF00FF)),
-        _buildColourSwatchEntry(context, const Color(0xFFFFFF00)),
+        _buildColourSwatchEntry(context, const Color(0xFF82ca9c)),
+        _buildColourSwatchEntry(context, const Color(0xFF00a64f)),
+        _buildColourSwatchEntry(context, const Color(0xFF017236)),
+        _buildColourSwatchEntry(context, const Color(0xFFf47151)),
+        _buildColourSwatchEntry(context, const Color(0xFFc81c23)),
+        _buildColourSwatchEntry(context, const Color(0xFFa71b20)),
+        _buildColourSwatchEntry(context, const Color(0xFFd1d3d3)),
+        _buildColourSwatchEntry(context, const Color(0xFFa7aaae)),
+        _buildColourSwatchEntry(context, const Color(0xFF808386)),
+        _buildColourSwatchEntry(context, const Color(0xFF59585d)),
+        _buildColourSwatchEntry(context, const Color(0xFF232021)),
         _buildColourSwatchEntry(context, const Color(0xFF000000)),
-        _buildColourSwatchEntry(context, const Color(0xFF00FF00)),
-        _buildColourSwatchEntry(context, const Color(0xFF0000FF)),
-        _buildColourSwatchEntry(context, const Color(0xFFAAAAAA)),
-        _buildColourSwatchEntry(context, const Color(0xFFAA00AA)),
-        _buildColourSwatchEntry(context, const Color(0xFFAAAA00)),
-        _buildColourSwatchEntry(context, const Color(0xFF777777)),
-        _buildColourSwatchEntry(context, const Color(0xFFDDDDDD)),
       ],
     );
   }
@@ -272,17 +272,17 @@ class _ColourPickerState extends State<ColourPicker> with UiLoggy {
     return Row(
       children: [
         _buildColourSwatchEntry(context, const Color(0xFFFFFFFF)),
-        _buildColourSwatchEntry(context, const Color(0xFF00FFFF)),
-        _buildColourSwatchEntry(context, const Color(0xFFFF00FF)),
-        _buildColourSwatchEntry(context, const Color(0xFFFFFF00)),
-        _buildColourSwatchEntry(context, const Color(0xFF000000)),
-        _buildColourSwatchEntry(context, const Color(0xFF00FF00)),
-        _buildColourSwatchEntry(context, const Color(0xFF0000FF)),
-        _buildColourSwatchEntry(context, const Color(0xFFAAAAAA)),
-        _buildColourSwatchEntry(context, const Color(0xFFAA00AA)),
-        _buildColourSwatchEntry(context, const Color(0xFFAAAA00)),
-        _buildColourSwatchEntry(context, const Color(0xFF777777)),
-        _buildColourSwatchEntry(context, const Color(0xFFDDDDDD)),
+        _buildColourSwatchEntry(context, const Color(0xFFd792c5)),
+        _buildColourSwatchEntry(context, const Color(0xFFbd559f),
+        _buildColourSwatchEntry(context, const Color(0xFF7c0969)),
+        _buildColourSwatchEntry(context, const Color(0xFF659ad3)),
+        _buildColourSwatchEntry(context, const Color(0xFF3576bd)),
+        _buildColourSwatchEntry(context, const Color(0xFF015aa9)),
+        _buildColourSwatchEntry(context, const Color(0xFF054089)),
+        _buildColourSwatchEntry(context, const Color(0xFFfedd02)),
+        _buildColourSwatchEntry(context, const Color(0xFFface40)),
+        _buildColourSwatchEntry(context, const Color(0xFFf6a617)),
+        _buildColourSwatchEntry(context, const Color(0xFFfa6d1d)),
       ],
     );
   }
