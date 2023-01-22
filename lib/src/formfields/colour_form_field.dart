@@ -273,7 +273,7 @@ class _ColourPickerState extends State<ColourPicker> with UiLoggy {
       children: [
         _buildColourSwatchEntry(context, const Color(0xFFFFFFFF)),
         _buildColourSwatchEntry(context, const Color(0xFFd792c5)),
-        _buildColourSwatchEntry(context, const Color(0xFFbd559f),
+        _buildColourSwatchEntry(context, const Color(0xFFbd559f)),
         _buildColourSwatchEntry(context, const Color(0xFF7c0969)),
         _buildColourSwatchEntry(context, const Color(0xFF659ad3)),
         _buildColourSwatchEntry(context, const Color(0xFF3576bd)),
