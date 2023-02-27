@@ -790,7 +790,7 @@ class FormeFluentTextBox extends FormField<String> with UiLoggy {
                 scrollPhysics: scrollPhysics,
                 autofillHints: readOnly ? null : autofillHints,
                 autofocus: autofocus,
-                toolbarOptions: toolbarOptions,
+               // toolbarOptions: toolbarOptions,
                 enableInteractiveSelection: enableInteractiveSelection,
                 maxLengthEnforcement: updateValueWhenComposing
                     ? maxLengthEnforcement

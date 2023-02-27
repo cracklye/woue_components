@@ -102,7 +102,7 @@ class FluentFormField extends FormField<String> with UiLoggy{
                 autocorrect: autocorrect,
                 autofillHints: autofillHints,
                 autofocus: autofocus,
-                clearGlobalKey: clearGlobalKey,
+                //clearGlobalKey: clearGlobalKey,
                 clipBehavior: clipBehavior,
                 cursorColor: cursorColor,
                 cursorHeight: cursorHeight,
@@ -161,7 +161,7 @@ class FluentFormField extends FormField<String> with UiLoggy{
                 textAlignVertical: textAlignVertical,
                 textCapitalization: textCapitalization,
                 textInputAction: textInputAction,
-                toolbarOptions: toolbarOptions,
+                //toolbarOptions: toolbarOptions,
               );
 
               if (state.hasError) {
