@@ -105,7 +105,7 @@ class _FluentAttachmentWidgetState extends State<FluentAttachmentWidget> {
             );
           }
           if (info != null) {
-            _updateList(info!);
+            _updateList(info);
           }
         },
         onDragUpdated: (details) {
