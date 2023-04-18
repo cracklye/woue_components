@@ -10,8 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  woue_components: 
-    path: ../../woue_components
+  woue_components:
+     git:
+      url: https://github.com/cracklye/woue_components.git
 
 dev_dependencies:
   flutter_test:
