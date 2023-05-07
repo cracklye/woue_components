@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:woue_components/src/listview/extended_list_default.dart';
-import 'package:woue_components/src/listview/extended_list_provider_grid.dart';
 import 'package:woue_components/src/listview/extended_list_view.dart';
 import 'package:woue_components/src/widgets/list_tile.dart';
 
@@ -9,11 +8,12 @@ class ListViewLayoutList<T> extends ListViewLayoutDefault<T> {
       {super.enableSearch,
       super.enableSorting,
       super.key = "list_view",
-      super.builder, 
+      super.builder,
       required super.selectIcon});
 
   @override
-  Widget buildContent(BuildContext context, List<T> items, ExtendedListContext<T> listContext) {
+  Widget buildContent(
+      BuildContext context, List<T> items, ExtendedListContext<T> listContext) {
     return ListView.builder(
       itemBuilder: (context, index) {
         var item = items[index];
@@ -23,14 +23,7 @@ class ListViewLayoutList<T> extends ListViewLayoutDefault<T> {
           return builder!(context, listContext, item, isSelected);
         }
 
-        return
-            // GestureDetector(
-            //     key: Key("extended_list_${index}"),
-            //     onTap: onTap == null ? null : () => onTap(item),
-            //     onDoubleTap: onDoubleTap == null ? null : () => onDoubleTap(item),
-            //     onLongPress: onLongTap == null ? null : () => onLongTap(item),
-            //     child:
-            ListTile(
+        return ListTile(
           selected: isSelected,
           onTap:
               listContext.onTap == null ? null : () => listContext.onTap!(item),

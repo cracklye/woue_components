@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:loggy/loggy.dart';
-import 'package:woue_components/src/listview/extended_list_default.dart';
-import 'package:woue_components/src/widgets/slider.dart';
+import 'package:woue_components/src/listview/setting_store.dart';
 import 'package:woue_components/woue_components.dart';
 import 'package:flutter/material.dart' as m;
 // enum ListViewType {
@@ -15,26 +14,26 @@ import 'package:flutter/material.dart' as m;
 
 //abstract class ListDataProvider {}
 
-abstract class SortOrderBy {
+abstract class ListViewSortOrderBy {
   String get key;
 }
 
-class SortOrderByFieldName extends SortOrderBy {
+class ListViewSortOrderByFieldName extends ListViewSortOrderBy {
   final String fieldName;
   final bool ascending;
   @override
   final String key;
 
-  SortOrderByFieldName(this.key, this.fieldName, this.ascending);
+  ListViewSortOrderByFieldName(this.key, this.fieldName, this.ascending);
 }
 
-abstract class Filter<T> {
+abstract class ListViewFilter<T> {
   String get key;
 }
 
 enum FilterComparison { equals, notequals, like, greaterthan, lessthan, isin }
 
-class FilterField<T> extends Filter<T> {
+class ListViewFilterField<T> extends ListViewFilter<T> {
   final dynamic value;
   final String fieldName;
   @override
@@ -43,38 +42,21 @@ class FilterField<T> extends Filter<T> {
   final String label;
 
   final FilterComparison comparison;
-  FilterField(this.key, this.fieldName, this.value, this.comparison,
+  ListViewFilterField(this.key, this.fieldName, this.value, this.comparison,
       this.isString, this.label);
 }
 
-class OrderByItem<T> {
+class ListViewOrderByItem<T> {
   final Widget label;
-  final List<SortOrderBy> Function() getSortOrders;
+  final List<ListViewSortOrderBy> Function() getSortOrders;
 
-  OrderByItem(this.label, this.getSortOrders);
+  ListViewOrderByItem(this.label, this.getSortOrders);
 }
 
-class FilterByItem<T> {
+class ListViewFilterByItem<T> {
   final Widget label;
-  final List<Filter<T>> Function() getFilters;
-  FilterByItem(this.label, this.getFilters);
-}
-
-enum TableColumnType { image, text, numeric, link }
-
-class TableColumn<T> {
-  final String label;
-  final String key;
-  final String? tooltip;
-  final Function(TableColumn, int, bool)? onSort;
-  final Function(TableColumn, T, dynamic, bool)? onDisplay;
-
-  TableColumn(
-      {required this.label,
-      required this.key,
-      this.tooltip,
-      this.onSort,
-      this.onDisplay});
+  final List<ListViewFilter<T>> Function() getFilters;
+  ListViewFilterByItem(this.label, this.getFilters);
 }
 
 class ExtendedListContext<T> {
@@ -94,7 +76,7 @@ class ExtendedListContext<T> {
 }
 
 class ExtendedListView<T> extends StatefulWidget {
-  ExtendedListView({
+  const ExtendedListView({
     super.key,
     this.selected,
     required this.items,
@@ -122,6 +104,7 @@ class ExtendedListView<T> extends StatefulWidget {
 
   @override
   State<ExtendedListView<T>> createState() => _ExtendedListViewState<T>();
+
   final List<T>? selected;
   final List<T> items;
 
@@ -129,13 +112,13 @@ class ExtendedListView<T> extends StatefulWidget {
 
   final List<ListViewLayoutProvider<T>> listDataProviders;
 
-  final List<OrderByItem>? orderBy;
-  final List<FilterByItem<T>>? filterBy;
+  final List<ListViewOrderByItem>? orderBy;
+  final List<ListViewFilterByItem<T>>? filterBy;
 
   final bool isLoading;
 
-  final Function(OrderByItem?)? onOrderByChange;
-  final Function(FilterByItem<T>?)? onFilterByChange;
+  final Function(ListViewOrderByItem?)? onOrderByChange;
+  final Function(ListViewFilterByItem<T>?)? onFilterByChange;
   final Function(String?)? onSearchChange;
 
   final Function(T)? onTap;
@@ -150,68 +133,6 @@ class ExtendedListView<T> extends StatefulWidget {
 
   final String? defaultSearchText;
 }
-
-abstract class SettingsStorage {
-  Future<double> getGridColumns([double defaultValue = 5]);
-  Future<ListViewLayoutProvider> getListViewType(
-      [ListViewLayoutProvider defaultValue]);
-  Future<String> getSearchString();
-  Future<void> setgridColumns(
-    double gridColumns,
-  );
-  Future<void> setSearchString(String searchString);
-  Future<void> setGridListViewType(ListViewLayoutProvider listViewType);
-}
-
-// class SharedPreferencesSettings extends SettingsStorage with UiLoggy {
-//   final String key;
-//   SharedPreferencesSettings(this.key);
-
-//   @override
-//   Future<double> getGridColumns([double defaultValue = 5]) async {
-//     // Obtain shared preferences.
-//     final prefs = await SharedPreferences.getInstance();
-//     return prefs.getDouble("$key.grid") ?? defaultValue;
-//   }
-
-//   @override
-//   Future<ListViewType> getListViewType(
-//       [ListViewType defaultValue = ListViewType.list]) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     String? lookup = prefs.getString("$key.listviewtype");
-//     try {
-//       return ListViewType.values
-//           .firstWhere((element) => element.toString() == lookup);
-//     } catch (e) {
-//       loggy.warning(e);
-//     }
-//     return defaultValue;
-//   }
-
-//   @override
-//   Future<String> getSearchString() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     return prefs.getString("$key.searchstring") ?? "";
-//   }
-
-//   @override
-//   Future<void> setGridListViewType(ListViewType listViewType) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     prefs.setString("$key.listviewtype", listViewType.toString());
-//   }
-
-//   @override
-//   Future<void> setSearchString(String searchString) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     prefs.setString("$key.searchstring", searchString);
-//   }
-
-//   @override
-//   Future<void> setgridColumns(double gridColumns) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     prefs.setDouble("$key.grid", gridColumns);
-//   }
-// }
 
 class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
     with UiLoggy {
@@ -295,12 +216,12 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
       if (_listViewType.buildLoadingContent != null) {
         return _listViewType.buildLoadingContent!();
       }
-      //TODO need to add loading symbol
-      return const Text("Loading");
+      return Center(
+          child: Column(
+              children: const [CircularProgressIndicator(), Text("Loading")]));
     }
 
     if (widget.items.isEmpty) {
-      //TODO need to format this a bit better (make it customisable)
       if (_listViewType.buildNoContent != null) {
         return _listViewType.buildNoContent!();
       }
@@ -323,11 +244,11 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
     List<Widget> btns = [];
     if (widget.onOrderByChange != null && widget.orderBy != null) {
       if (widget.orderBy!.length > 1) {
-        btns.add(DropDownButton<OrderByItem>(
+        btns.add(DropDownButton<ListViewOrderByItem>(
           title: const Icon(m.Icons.arrow_downward),
           onPressed: (p0) => widget.onOrderByChange!(p0),
           items: widget.orderBy!
-              .map((e) => DropDownItem<OrderByItem>(
+              .map((e) => DropDownItem<ListViewOrderByItem>(
                     //TODO selected:
                     content: e.label,
                     value: e,
@@ -350,11 +271,13 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
           child: buildSearchBox(context),
         ),
         ...btns,
-        ...widget.listDataProviders
-            .map<Widget>(
-              (e) => buildSelectViewButton(context, e),
-            )
-            .toList(),
+        ...widget.listDataProviders.length < 2
+            ? []
+            : widget.listDataProviders
+                .map<Widget>(
+                  (e) => buildSelectViewButton(context, e),
+                )
+                .toList(),
       ],
     );
   }
@@ -397,26 +320,6 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
             icon: Icon(type.selectIcon));
       }
     }
-
-    // if (type == ListViewType.table &&
-    //     (widget.tableColumns == null || widget.tableColumns!.isEmpty)) {
-    //   return Container();
-    // }
-    // if (type == ListViewType.tree &&
-    //     (widget.hierarchy == null || widget.hierarchy!.isEmpty)) {
-    //   return Container();
-    // }
-
-    // if (widget.enabledListTypes.contains(type)) {
-    //   if (_listViewType == type) {
-    //     return Icon(icon);
-    //   } else {
-    //     return IconButton(
-    //         onPressed: () => _selectViewType(type), icon: Icon(icon));
-    //   }
-    // } else {
-    //   return Container();
-    // }
   }
 
   _selectViewType(ListViewLayoutProvider<T> viewType) async {

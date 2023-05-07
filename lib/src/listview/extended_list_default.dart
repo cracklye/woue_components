@@ -27,7 +27,8 @@ abstract class ListViewLayoutProvider<T> {
 
   Widget Function()? buildLoadingContent;
   Widget Function()? buildNoContent;
-  Widget buildContent(BuildContext context, List<T> items, ExtendedListContext<T> listContext);
+  Widget buildContent(
+      BuildContext context, List<T> items, ExtendedListContext<T> listContext);
 
   IconData get selectIcon;
   String get selectLabel;
@@ -50,44 +51,49 @@ abstract class ListViewLayoutDefault<T> extends ListViewLayoutProvider<T> {
     this.getSizeParameters,
     this.builder,
   });
+  @override
   final ExtendedListItemBuilder<T>? builder;
-
+  @override
   SizeParameters Function()? getSizeParameters;
+  @override
 
   /// Whether to show the sort option (if its provided)
   final bool enableSorting;
-
+  @override
   // Whether to show the search bar, false will not show it, true will show it, and null will use the user settings
   final bool? enableSearch;
-
+  @override
   final bool enabled;
-
+  @override
   final bool visible;
-
+  @override
   final IconData selectIcon;
-
+  @override
   final String selectLabel;
-
+  @override
   final String key;
+  @override
 
   // This widget will be inserted under the toolbar but above the main content
   Widget Function(BuildContext buildContext)? buildToolbarSub;
 
+
   @override
   Widget Function()? get buildLoadingContent => _buildLoadingContent;
   Widget _buildLoadingContent() {
-    return Text("Loading");
+    return const Text("Loading");
   }
 
   @override
   Widget Function()? get buildNoContent => _buildNoContent;
 
   Widget _buildNoContent() {
-    return Text("No items available");
+    return const Text("No items available");
   }
 
   @override
-  Widget buildContent(BuildContext context, List<T> items, ExtendedListContext<T> listContext) {
+  Widget buildContent(
+      BuildContext context, List<T> items, ExtendedListContext<T> listContext) {
     return Text("The buildContent method needs to be overridden $items");
   }
 }

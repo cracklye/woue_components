@@ -11,8 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   woue_components:
-     git:
-      url: https://github.com/cracklye/woue_components.git
+      git:
+       url: https://github.com/cracklye/woue_components.git
+    #path: ../../woue_components
   fluent_ui:
   
   desktop_drop:

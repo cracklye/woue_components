@@ -243,6 +243,7 @@ class MaterialProvider extends w.WoueProvider {
       shape: shape,
       leading: leading,
       title: title,
+      selected: selected,
       subtitle: subtitle,
       trailing: trailing,
       isThreeLine: isThreeLine,
