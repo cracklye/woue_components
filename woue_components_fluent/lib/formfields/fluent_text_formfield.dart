@@ -116,7 +116,6 @@ class FluentFormField extends FormField<String> with UiLoggy{
                 expands: expands,
                 focusNode: focusNode,
                 foregroundDecoration: foregroundDecoration,
-                header: header,
                 headerStyle: headerStyle,
                 highlightColor: highlightColor,
                 iconButtonThemeData: iconButtonThemeData,
