@@ -1,5 +1,6 @@
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
 import 'package:woue_app/widgets/action_bar.dart';
+import 'package:woue_app/widgets/test_extendedlist.dart';
 import 'package:woue_app/widgets/test_page.dart';
 // import 'package:system_theme/system_theme.dart';
 // import 'package:url_launcher/link.dart';
@@ -26,7 +27,7 @@ class AppFluent extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.standard,
         focusTheme: FocusThemeData(
-          glowFactor: is10footScreen() ? 2.0 : 0.0,
+          glowFactor: is10footScreen(context) ? 2.0 : 0.0,
         ),
       ),
       // initialRoute: '/',
@@ -35,9 +36,16 @@ class AppFluent extends StatelessWidget {
     );
   }
 }
-
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
+
+  @override
+  State<MyHomePage> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<MyHomePage> {
+
+  int _index= 0; 
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +56,14 @@ class MyHomePage extends StatelessWidget {
       pane: NavigationPane(
           displayMode: PaneDisplayMode.auto,
           selected: () {
-            return 0;
+            return _index;
           }(),
           items: [
             PaneItemHeader(header: const Text('Inputs')),
             PaneItem(
+               onTap: () => setState(() {
+                _index = 0; 
+              }),
               icon: const Icon(FluentIcons.button_control),
               title: const Text('Hi!'),
               body: const ScaffoldPage(
@@ -65,6 +76,9 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             PaneItem(
+              onTap: () => setState(() {
+                _index = 1; 
+              }),
               icon: const Icon(FluentIcons.button_control),
               title: const Text('Low!'),
               body: const ScaffoldPage(
@@ -73,6 +87,19 @@ class MyHomePage extends StatelessWidget {
                   style: TextStyle(fontSize: 60),
                 ),
                 content: AppButtonBar(),
+              ),
+            ), PaneItem(
+              onTap: () => setState(() {
+                _index = 2; 
+              }),
+              icon: const Icon(FluentIcons.button_control),
+              title: const Text('Extended List'),
+              body: const ScaffoldPage(
+                header: Text(
+                  "Test Extended List",
+                  style: TextStyle(fontSize: 60),
+                ),
+                content: TestExtendedList(),
               ),
             ),
           ]),

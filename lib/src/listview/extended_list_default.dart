@@ -24,6 +24,8 @@ abstract class ListViewLayoutProvider<T> {
 
   // This widget will be inserted under the toolbar but above the main content
   Widget Function(BuildContext buildContext)? buildToolbarSub;
+  
+  Widget Function(BuildContext buildContext)? buildToolbarFooter;
 
   Widget Function()? buildLoadingContent;
   Widget Function()? buildNoContent;

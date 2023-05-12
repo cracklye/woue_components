@@ -81,12 +81,15 @@ class ExtendedListView<T> extends StatefulWidget {
     this.selected,
     required this.items,
     this.buildToolbarSub,
+    this.buildToolbarFooter,
+    this.buildViewIcons,
     required this.listDataProviders,
     this.orderBy,
     this.filterBy,
     this.onOrderByChange,
     this.onFilterByChange,
     this.onSearchChange,
+    this.onSearchClear,
     this.onTap,
     this.onDoubleTap,
     this.onLongTap,
@@ -94,6 +97,7 @@ class ExtendedListView<T> extends StatefulWidget {
     this.isLoading = false,
     this.enableSearch = true,
     this.defaultSearchText,
+    this.footerText = "",
     String? settingsKey,
     SettingsStorage? settings,
   }) : settingsStorer = settings
@@ -104,7 +108,7 @@ class ExtendedListView<T> extends StatefulWidget {
 
   @override
   State<ExtendedListView<T>> createState() => _ExtendedListViewState<T>();
-
+  final String footerText;
   final List<T>? selected;
   final List<T> items;
 
@@ -120,6 +124,7 @@ class ExtendedListView<T> extends StatefulWidget {
   final Function(ListViewOrderByItem?)? onOrderByChange;
   final Function(ListViewFilterByItem<T>?)? onFilterByChange;
   final Function(String?)? onSearchChange;
+  final Function(String?)? onSearchClear;
 
   final Function(T)? onTap;
   final Function(T)? onLongTap;
@@ -128,6 +133,8 @@ class ExtendedListView<T> extends StatefulWidget {
       T? after, T? parent)? onReorder;
 
   final Widget Function(BuildContext)? buildToolbarSub;
+  final Widget Function(BuildContext)? buildToolbarFooter;
+  final List<Widget> Function(BuildContext)? buildViewIcons;
 
   final SettingsStorage? settingsStorer;
 
@@ -168,14 +175,28 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
     super.initState();
   }
 
+  Widget buildSubToolbar() {
+    List<Widget> widgets = [];
+    if (_listViewType.buildToolbarSub != null) {
+      widgets.add(_listViewType.buildToolbarSub!(context));
+    }
+    if (widget.buildToolbarSub != null) {
+      widgets.add(widget.buildToolbarSub!(context));
+    }
+    if (widgets.isNotEmpty) {
+      return Row(
+        children: widgets,
+      );
+    }
+    return Container();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         buildToolbar(context),
-        (_listViewType.buildToolbarSub != null)
-            ? _listViewType.buildToolbarSub!(context)
-            : Container(),
+        buildSubToolbar(),
         Expanded(child: buildContent(context)),
         buildFooter(context),
       ],
@@ -202,13 +223,22 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
             });
           })));
     }
+
+    if (widget.buildToolbarFooter != null) {
+      w.add(widget.buildToolbarFooter!(context));
+    }
+
+    if (_listViewType.buildToolbarFooter != null) {
+      w.add(_listViewType.buildToolbarFooter!(context));
+    }
+
     if (w.isEmpty) {
       return Container();
     }
 
     return SizedBox(
         height: 35,
-        child: Row(children: [const Expanded(child: Text("Footer")), ...w]));
+        child: Row(children: [Expanded(child: Text(widget.footerText)), ...w]));
   }
 
   Widget buildContent(BuildContext context) {
@@ -278,6 +308,7 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
                   (e) => buildSelectViewButton(context, e),
                 )
                 .toList(),
+        ...widget.buildViewIcons != null ? widget.buildViewIcons!(context) : []
       ],
     );
   }
@@ -286,7 +317,6 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
     if (widget.enableSearch) {
       return Row(
         children: [
-          const Icon(m.Icons.search),
           Expanded(
               child: m.Material(
                   child: m.TextFormField(
@@ -296,6 +326,20 @@ class _ExtendedListViewState<T> extends State<ExtendedListView<T>>
                 widget.onSearchChange!(value);
               }
             },
+            decoration: m.InputDecoration(
+                prefixIcon:
+                    Icon(m.Icons.search), // prefixIcon ?? Icon(m.Icons.done),
+                suffixIcon: widget.onSearchClear == null
+                    ? null
+                    : IconButton(
+                        icon: Icon(
+                          m.Icons.clear,
+                        ),
+                        onPressed: _searchController.text == ""
+                            ? null
+                            : () =>
+                                widget.onSearchClear!(_searchController.text),
+                      )),
           )))
         ],
       );
