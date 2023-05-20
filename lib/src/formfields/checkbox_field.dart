@@ -32,7 +32,14 @@ class CheckboxField extends FormField<bool> {
               // final CheckboxFieldState state =
               //     baseState as CheckboxFieldState;
 
-              var tb = Checkbox(value: state.value, onChanged: state.didChange);
+              var tb = Checkbox(
+                  value: state.value,
+                  onChanged: (value) {
+                    state.didChange(value);
+                    if (onChanged != null) {
+                      onChanged!(value);
+                    }
+                  });
               if (state.hasError) {
                 return Wrap(children: [tb, Text("Error ${state.errorText}")]);
               } else {
