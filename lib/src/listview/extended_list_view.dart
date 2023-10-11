@@ -48,9 +48,8 @@ class ListViewFilterField<T> extends ListViewFilter<T> {
 
 class ListViewOrderByItem<T> {
   final Widget label;
-  final List<ListViewSortOrderBy> Function() getSortOrders;
-
-  ListViewOrderByItem(this.label, this.getSortOrders);
+  
+  ListViewOrderByItem(this.label);
 }
 
 class ListViewFilterByItem<T> {
